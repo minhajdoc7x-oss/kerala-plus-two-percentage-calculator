@@ -36,7 +36,7 @@ label {
     font-weight: 500;
 }
 
-/* FIXED INPUT & SELECT WIDTH */
+/* FIXED WIDTH */
 input,
 select {
     width: 100%;
@@ -50,7 +50,7 @@ select {
     display: block;
 }
 
-/* Remove default select styling differences */
+/* Remove browser select difference */
 select {
     appearance: none;
 }
@@ -128,7 +128,7 @@ button {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Optimization */
+/* Mobile */
 @media (max-width: 400px) {
     .container {
         max-width: 100%;
