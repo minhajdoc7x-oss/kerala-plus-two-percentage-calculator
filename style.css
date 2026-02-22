@@ -7,77 +7,88 @@ body {
     min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    padding: 0;
+    padding: 20px; /* സൈഡിൽ ഗ്യാപ്പ് വരാൻ ഇത് സഹായിക്കും */
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    /* ബോക്സ് വല്ലാതെ വീതി കൂടുന്നത് തടയാൻ താഴെ മാറ്റം വരുത്തി */
+    /* ബോക്സ് ചെറുതാക്കാൻ width 85% ആക്കി കുറച്ചു */
     width: 85%;          
-    max-width: 310px;    /* പഴയ വെബ്സൈറ്റിലെ അതേ സ്ലിം ലുക്കിന് വേണ്ടി */
-    padding: 20px;       
+    max-width: 280px;    /* ഏറ്റവും മെലിഞ്ഞ (Slim) ലുക്കിന് വേണ്ടി */
+    padding: 15px 20px;  
     border-radius: 20px; 
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
     text-align: center;
     position: relative;
     z-index: 2;
-    margin: auto;        /* സെന്ററിംഗ് ഉറപ്പാക്കാൻ */
+    margin: auto;
 }
 
 h2 { 
-    font-size: 18px;    
-    margin-bottom: 15px; 
+    font-size: 16px;    /* ഹെഡിംഗ് സൈസ് കുറച്ചു */
+    margin-bottom: 10px; 
     color: #333; 
     font-weight: 700;
 }
 
+/* "Choose Your Batch" എന്ന ലേബൽ ചെറുതാക്കി */
 label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    color: #444;
+    color: #555;
     display: block;
     margin-bottom: 4px;
 }
 
-/* ഇൻപുട്ടുകളുടെ സൈസ് സ്ലിം ആക്കി */
+/* ഇൻപുട്ട് ബോക്സുകൾ സ്ലിം ആക്കി */
 select, input {
     width: 100%;      
-    height: 38px;       
-    padding: 0 12px;    
-    margin: 5px 0;      
-    border-radius: 10px;
+    height: 35px;       /* ബോക്സിന്റെ ഉയരം കുറച്ചു */
+    padding: 0 10px;    
+    margin: 4px 0;      /* ബോക്സുകൾ തമ്മിലുള്ള അകലം കുറച്ചു */
+    border-radius: 8px;
     border: 1px solid #ddd;
-    font-size: 13px;
+    font-size: 12px;    /* അക്ഷരങ്ങൾ ചെറുതാക്കി */
     box-sizing: border-box;
+    background: #fdfdfd;
 }
 
 /* ബട്ടണുകൾ ഒതുക്കമുള്ളതാക്കി */
 button {
-    height: 42px;       
-    font-size: 14px;
-    margin-top: 10px;
+    height: 38px;       
+    font-size: 13px;
+    margin-top: 8px;
     width: 100%;
     background-color: #ff0081;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(255, 0, 130, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 0, 130, 0.2);
+}
+
+button[onclick="clearAll()"] {
+    background-color: #6c757d;
+    margin-top: 6px;
+}
+
+/* റിസൾട്ട് ഭാഗം */
+.result-box {
+    margin-top: 10px;
 }
 
 .percent-display {
-    font-size: 32px;    
+    font-size: 28px;    /* റിസൾട്ട് വലിപ്പം കുറച്ചു */
     font-weight: 800;
     color: #ff0081;
-    margin-top: 5px;
 }
 
 .footer { 
-    margin-top: 15px;
-    font-size: 11px; 
+    margin-top: 12px;
+    font-size: 10px; 
     color: white; 
     opacity: 0.8;
 }
