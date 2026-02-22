@@ -58,12 +58,25 @@ function calculatePercentage() {
         origin: { y: 0.6 }
     });
 
+    // Added Watermark and result display
     document.getElementById('result').innerHTML = `
-        <div style="margin-top:15px;">
+        <div class="watermark">Minhaj</div>
+        <div style="margin-top:15px; position: relative; z-index: 2;">
             <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / 1200</div>
             <div class="percent-display">${percentage.toFixed(2)}%</div>
         </div>
     `;
+}
+
+// Added this function for the Download Button
+function downloadResult() {
+    const resultBox = document.getElementById('result');
+    if (resultBox.innerHTML === "") {
+        alert("Please calculate the percentage first!");
+        return;
+    }
+    // Opens the browser print/save dialog
+    window.print();
 }
 
 function clearAll() {
