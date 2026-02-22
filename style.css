@@ -1,36 +1,35 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
+    
+    /* മൊബൈൽ സ്ക്രീനിന്റെ നടുവിൽ വരാൻ ഈ 4 വരികൾ നിർബന്ധമാണ് */
     display: flex;
+    justify-content: center; /* Horizontal Center */
+    align-items: center;     /* Vertical Center */
+    min-height: 100vh;       /* ഫുൾ സ്ക്രീൻ ഹൈറ്റ് */
+    
     flex-direction: column;
-    align-items: center;     /* Horizontal-ആയി നടുവിൽ നിർത്താൻ */
-    
-    /* ബോക്സിനെ മുകളിലേക്ക് മാറ്റാൻ താഴെ പറയുന്ന മാറ്റങ്ങൾ ശ്രദ്ധിക്കുക */
-    justify-content: flex-start; /* മുകളിൽ നിന്ന് തുടങ്ങാൻ വേണ്ടി */
-    padding-top: 40px;           /* മുകളിൽ നിന്ന് എത്ര ഗ്യാപ്പ് വേണമെന്ന് ഇവിടെ തീരുമാനിക്കാം (40px-60px നല്ലതാണ്) */
-    
-    min-height: 100vh; 
     margin: 0;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 15px;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    width: 95%;          
+    width: 100%;          
     max-width: 380px;    
-    padding: 15px;       
+    padding: 20px;       
     border-radius: 20px; 
     box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
     text-align: center;
     position: relative;
     z-index: 2;
-    /* ആവശ്യമെങ്കിൽ ഒരു ചെറിയ margin-top കൂടി നൽകാം */
-    margin-top: 20px; 
+    
+    /* സെന്ററിംഗ് പെർഫെക്റ്റ് ആക്കാൻ */
     display: flex;
     flex-direction: column;
+    margin: auto; 
 }
 
 h2 { 
@@ -46,9 +45,10 @@ label {
     font-weight: 600;
     color: #444;
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
+/* ഇൻപുട്ടുകളുടെ സൈസും ബോക്സുകൾ തമ്മിലുള്ള ദൂരവും */
 select, input {
     width: 100%;      
     height: 42px;       
@@ -61,8 +61,9 @@ select, input {
     background: #fdfdfd;
 }
 
+/* ബട്ടണുകൾ */
 button {
-    height: 45px;       
+    height: 48px;       
     font-size: 16px;
     margin-top: 10px;
     width: 100%;
@@ -87,17 +88,16 @@ button[onclick="clearAll()"] {
 }
 
 .result-box {
-    margin-top: 10px;
-    padding-top: 5px;
+    margin-top: 15px;
 }
 
 .percent-display {
     font-size: 38px;    
     font-weight: 800;
     color: #ff0081;
-    margin-top: -5px;
 }
 
+/* വാട്ടർമാർക്ക് */
 .watermark {
     position: fixed;
     top: 50%;
@@ -115,4 +115,14 @@ button[onclick="clearAll()"] {
     font-size: 12px; 
     color: white; 
     opacity: 0.9;
+}
+
+/* ബാച്ച് സെലക്ട് ചെയ്യുമ്പോൾ ലിസ്റ്റ് വലുതായാൽ സ്ക്രോൾ ചെയ്യാൻ സഹായിക്കുന്നു */
+@media (max-height: 700px) {
+    body {
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: auto;
+    }
 }
