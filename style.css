@@ -9,54 +9,42 @@ body {
     margin: 0;
     padding: 10px;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
+/* പ്രധാന ബോക്സിന്റെ വലിപ്പം ഇവിടെ കുറച്ചു */
 .container {
     background: rgba(255, 255, 255, 0.95);
     width: 90%;          
-    max-width: 340px;    /* 380-ൽ നിന്ന് 340 ആക്കി കുറച്ചു */
-    padding: 12px 18px;  /* പാഡിംഗ് കുറച്ചു */
+    max-width: 320px;    /* 340-ൽ നിന്ന് 320 ആക്കി കുറച്ചു */
+    padding: 15px;       /* അകത്തെ സ്പേസ് കുറച്ചു */
     border-radius: 15px; 
     box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
     text-align: center;
     position: relative;
     z-index: 2;
-    margin: auto; 
 }
 
 h2 { 
-    font-size: 18px;    /* ടൈറ്റിൽ വലിപ്പം കുറച്ചു */
-    margin-top: 5px;
-    margin-bottom: 12px; 
+    font-size: 18px;    
+    margin-bottom: 10px; 
     color: #333; 
-    font-weight: 700;
 }
 
-label {
-    font-size: 13px;    /* ലേബൽ വലിപ്പം കുറച്ചു */
-    font-weight: 600;
-    color: #444;
-    display: block;
-    margin-bottom: 3px;
-}
-
-/* Batch Choose & Input ബോക്സുകളുടെ വലിപ്പം കുറച്ചു */
+/* Batch Selection ബോക്സിന്റെ വലിപ്പം */
 select, input {
     width: 100%;      
-    height: 38px;       /* 42-ൽ നിന്ന് 38 ആക്കി കുറച്ചു */
+    height: 36px;       /* ബോക്സിന്റെ ഉയരം കുറച്ചു */
     padding: 0 10px;    
-    margin: 5px 0;      /* അകലം കുറച്ചു */
+    margin: 5px 0;      
     border-radius: 8px;
     border: 1px solid #ddd;
-    font-size: 13px;    /* ഫോണ്ട് സൈസ് കുറച്ചു */
+    font-size: 13px;    
     box-sizing: border-box;
-    background: #fdfdfd;
 }
 
-/* ബട്ടണുകളുടെ വലിപ്പം */
+/* ബട്ടണുകളുടെ വലിപ്പം കുറച്ചു */
 button {
-    height: 42px;       /* 48-ൽ നിന്ന് 42 ആക്കി കുറച്ചു */
+    height: 40px;       
     font-size: 14px;
     margin-top: 8px;
     width: 100%;
@@ -64,47 +52,18 @@ button {
     color: #fff;
     border-radius: 10px;
     border: none;
-    cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(255, 0, 130, 0.25);
-    transition: 0.3s;
-}
-
-button:active {
-    transform: scale(0.97);
-}
-
-button[onclick="clearAll()"] {
-    background-color: #6c757d;
-    margin-top: 6px;
-}
-
-.result-box {
-    margin-top: 12px;
 }
 
 .percent-display {
-    font-size: 32px;    /* റിസൾട്ട് വലിപ്പം കുറച്ചു */
+    font-size: 30px;    
     font-weight: 800;
     color: #ff0081;
-}
-
-/* വാട്ടർമാർക്ക് */
-.watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 50px;    /* വലിപ്പം കുറച്ചു */
-    color: rgba(255,255,255,0.06);
-    font-weight: 900;
-    pointer-events: none;
-    z-index: 1;
+    margin-top: 5px;
 }
 
 .footer { 
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 11px; 
     color: white; 
-    opacity: 0.8;
 }
