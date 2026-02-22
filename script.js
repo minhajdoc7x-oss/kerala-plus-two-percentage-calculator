@@ -7,10 +7,18 @@ const batchData = {
 function updateSubjects() {
     const batch = document.getElementById('batchSelect').value;
     const container = document.getElementById('subjectInputs');
+    const totalMarkDiv = document.getElementById('totalMarkContainer'); // Link to the new HTML div
+    
     container.innerHTML = "";
     document.getElementById('result').innerHTML = "";
 
-    if (!batch) return;
+    if (!batch) {
+        if(totalMarkDiv) totalMarkDiv.style.display = "none";
+        return;
+    }
+
+    // "Enter Total Mark" സെക്ഷൻ കാണിക്കുന്നു
+    if(totalMarkDiv) totalMarkDiv.style.display = "block";
 
     batchData[batch].forEach((sub, index) => {
         container.innerHTML += `
@@ -26,10 +34,14 @@ function updateSubjects() {
 
 function calculatePercentage() {
     const batch = document.getElementById('batchSelect').value;
+    const maxTotalInput = document.getElementById('maxTotal'); // "Enter Total Mark" ഇൻപുട്ട്
+    
     if (!batch) {
         alert("Please choose a batch!");
         return;
     }
+
+    const maxTotal = maxTotalInput ? parseFloat(maxTotalInput.value) : 1200;
 
     let totalMarks = 0;
     for (let i = 0; i < 6; i++) {
@@ -41,20 +53,19 @@ function calculatePercentage() {
         totalMarks += parseFloat(value);
     }
 
-    let percentage = (totalMarks / 1200) * 100;
+    // യൂസർ നൽകിയ ടോട്ടൽ മാർക്ക് വെച്ച് ശതമാനം കണക്കാക്കുന്നു
+    let percentage = (totalMarks / maxTotal) * 100;
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <div id="targetResult" style="margin-top:15px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 2px solid #1cc88a;">
-            <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / 1200</div>
+            <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / ${maxTotal}</div>
             <div class="percent-display" style="font-size: 28px; font-weight: bold; color: #1cc88a;">${percentage.toFixed(2)}%</div>
         </div>
     `;
 
-    // --- മൊബൈലിലും ലാപ്ടോപ്പിലും ഒരേപോലെ താഴേക്ക് വരാനുള്ള കോഡ് ---
     setTimeout(() => {
         const element = document.getElementById("targetResult");
-        // 'block: end' നൽകിയാൽ മൊബൈലിൽ കീബോർഡ് ഉണ്ടെങ്കിൽ പോലും റിസൾട്ട് തെളിഞ്ഞു കാണും
         element.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }, 150);
 
@@ -69,5 +80,9 @@ function clearAll() {
     document.getElementById('batchSelect').value = "";
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
+    
+    const totalMarkDiv = document.getElementById('totalMarkContainer');
+    if(totalMarkDiv) totalMarkDiv.style.display = "none"; // ക്ലിയർ ചെയ്യുമ്പോൾ ബോക്സ് മറയ്ക്കുന്നു
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
