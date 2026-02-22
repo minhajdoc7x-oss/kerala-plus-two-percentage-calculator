@@ -64,16 +64,24 @@ function calculatePercentage() {
         origin: { y: 0.6 }
     });
 
-    // ✨ Attractive Result Display (No Circle)
+    // Circle circumference (2 * π * r) → r = 50 → 314
+    const circleOffset = 314 - (314 * percentage / 100);
+
     document.getElementById('result').innerHTML = `
         <div class="result-content">
             
-            <div class="big-percentage">
-                ${percentage.toFixed(2)}%
+            <div class="circle">
+                <svg width="140" height="140">
+                    <circle cx="70" cy="70" r="50" class="bg-circle"/>
+                    <circle cx="70" cy="70" r="50" 
+                        class="progress-circle"
+                        style="stroke-dashoffset: ${circleOffset};"/>
+                </svg>
+                <div class="circle-text">${percentage.toFixed(2)}%</div>
             </div>
 
             <div class="total-display">
-                Total Marks: <span>${totalMarks}</span> / 1200
+                Total Marks: <strong>${totalMarks}</strong> / 1200
             </div>
 
         </div>
