@@ -7,7 +7,7 @@ const batchData = {
 function updateSubjects() {
     const batch = document.getElementById('batchSelect').value;
     const container = document.getElementById('subjectInputs');
-    const totalMarkDiv = document.getElementById('totalMarkContainer'); // Link to the new HTML div
+    const totalMarkDiv = document.getElementById('totalMarkContainer'); 
     
     container.innerHTML = "";
     document.getElementById('result').innerHTML = "";
@@ -17,7 +17,7 @@ function updateSubjects() {
         return;
     }
 
-    // "Enter Total Mark" സെക്ഷൻ കാണിക്കുന്നു
+    // Displays the "ENTER SUBJECT TOTAL MARK" heading
     if(totalMarkDiv) totalMarkDiv.style.display = "block";
 
     batchData[batch].forEach((sub, index) => {
@@ -34,7 +34,8 @@ function updateSubjects() {
 
 function calculatePercentage() {
     const batch = document.getElementById('batchSelect').value;
-    const maxTotalInput = document.getElementById('maxTotal'); // "Enter Total Mark" ഇൻപുട്ട്
+    // Pulls the 1200 value from the hidden input field
+    const maxTotalInput = document.getElementById('maxTotal'); 
     
     if (!batch) {
         alert("Please choose a batch!");
@@ -47,26 +48,29 @@ function calculatePercentage() {
     for (let i = 0; i < 6; i++) {
         const value = document.getElementById(`sub${i}`).value;
         if (value === "" || value > 200 || value < 0) {
-            alert("Please enter valid marks for all subjects!");
+            alert("Please enter valid marks (0-200) for all subjects!");
             return;
         }
         totalMarks += parseFloat(value);
     }
 
-    // യൂസർ നൽകിയ ടോട്ടൽ മാർക്ക് വെച്ച് ശതമാനം കണക്കാക്കുന്നു
+    // Calculates percentage based on the hidden total
     let percentage = (totalMarks / maxTotal) * 100;
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <div id="targetResult" style="margin-top:15px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 2px solid #1cc88a;">
-            <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / ${maxTotal}</div>
+            <div style="font-size: 16px;">Total Obtained: <b>${totalMarks}</b> / ${maxTotal}</div>
             <div class="percent-display" style="font-size: 28px; font-weight: bold; color: #1cc88a;">${percentage.toFixed(2)}%</div>
         </div>
     `;
 
+    // Smooth scroll to results for better mobile experience
     setTimeout(() => {
         const element = document.getElementById("targetResult");
-        element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        if(element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
     }, 150);
 
     confetti({
@@ -81,8 +85,9 @@ function clearAll() {
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
     
+    // Hides the heading section again on reset
     const totalMarkDiv = document.getElementById('totalMarkContainer');
-    if(totalMarkDiv) totalMarkDiv.style.display = "none"; // ക്ലിയർ ചെയ്യുമ്പോൾ ബോക്സ് മറയ്ക്കുന്നു
+    if(totalMarkDiv) totalMarkDiv.style.display = "none"; 
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
