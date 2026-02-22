@@ -7,71 +7,74 @@ body {
     min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    /* വശങ്ങളിൽ സ്പേസ് (Gap) നിർബന്ധമായും വരാൻ ഇത് സഹായിക്കും */
-    padding: 20px; 
+    /* സ്ക്രീനിന്റെ അരികിൽ മുട്ടാതിരിക്കാൻ ബോഡിയിൽ പാഡിംഗ് നിർബന്ധമാണ് */
+    padding: 0; 
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    /* പഴയ സൈറ്റിലെ അതേ Slim ലുക്കിന് വേണ്ടി താഴെ മാറ്റം വരുത്തി */
-    width: 260px !important;    /* വീതി ഉറപ്പിച്ചു */
-    max-width: 260px;           /* ഇതിൽ കൂടുതൽ വികസിക്കില്ല */
-    padding: 20px;       
+    /* വശങ്ങളിൽ കൃത്യമായി വിടവ് (Gap) വരാൻ താഴെ പറയുന്ന വരികൾ ശ്രദ്ധിക്കുക */
+    width: calc(100% - 60px);   /* സ്ക്രീനിന്റെ വീതിയിൽ നിന്ന് 60px കുറച്ചു, അപ്പോൾ വശങ്ങളിൽ 30px വീതം ഗ്യാപ്പ് കിട്ടും */
+    max-width: 300px;           /* ബോക്സ് വല്ലാതെ മെലിയാതിരിക്കാൻ മാക്സിമം ലിമിറ്റ് */
+    padding: 25px 20px;         /* ഉള്ളിലെ സ്പേസ് അല്പം കൂട്ടി */
     border-radius: 20px; 
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
     text-align: center;
     position: relative;
     z-index: 2;
-    /* വശങ്ങളിൽ തുല്യമായ ഗ്യാപ്പ് വരാൻ */
-    margin: auto; 
+    margin: auto;               /* സെന്ററിൽ നിൽക്കാൻ */
 }
 
 h2 { 
-    font-size: 17px;    
+    font-size: 18px;    
     margin-bottom: 15px; 
     color: #333; 
     font-weight: 700;
+    text-transform: uppercase;
 }
 
-/* ഇൻപുട്ടുകൾ പഴയ സൈറ്റിലെ പോലെ സ്ലിം ആക്കി */
-select, input {
+/* ഇൻപുട്ടുകൾ പഴയ സൈറ്റിലെ (16844.jpg) അതേ മോഡലിൽ */
+input, select {
     width: 100%;      
-    height: 36px;       
-    padding: 0 10px;    
-    margin: 5px 0;      
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 13px;    
+    height: 42px;       /* പഴയ സൈറ്റിലെ ഇൻപുട്ടുകളുടെ അതേ ഉയരം */
+    padding: 0 15px;    
+    margin: 8px 0;      
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;    
     box-sizing: border-box;
-    background: #fdfdfd;
+    background: #f9f9f9;
 }
 
+/* ബട്ടണുകൾ */
 button {
-    height: 40px;       
-    font-size: 14px;
-    margin-top: 10px;
+    height: 45px;       
+    font-size: 15px;
+    margin-top: 15px;
     width: 100%;
     background-color: #ff0081;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 12px rgba(255, 0, 130, 0.2);
+    box-shadow: 0 5px 15px rgba(255, 0, 130, 0.3);
 }
 
-.percent-display {
-    font-size: 28px;    
-    font-weight: 800;
-    color: #ff0081;
-    margin-top: 10px;
+button:active {
+    transform: scale(0.96);
 }
 
 .footer { 
-    margin-top: 15px;
-    font-size: 11px; 
+    margin-top: 20px;
+    font-size: 12px; 
     color: white; 
-    opacity: 0.8;
+    opacity: 0.9;
+}
+
+/* സ്ക്രോളിംഗ് സ്മൂത്ത് ആക്കാൻ */
+html {
+    scroll-behavior: smooth;
 }
