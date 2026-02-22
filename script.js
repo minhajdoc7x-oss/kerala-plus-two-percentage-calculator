@@ -74,15 +74,6 @@ function calculatePercentage() {
     `;
 }
 
-function calculateGrade(percent) {
-    if (percent >= 90) return "A+ 🏆";
-    if (percent >= 80) return "A 🎯";
-    if (percent >= 70) return "B+ 👍";
-    if (percent >= 60) return "B 🙂";
-    if (percent >= 50) return "C";
-    if (percent >= 40) return "D";
-    return "Failed ❌";
-}
 
 function clearAll() {
     document.getElementById('batchSelect').value = "";
