@@ -7,24 +7,25 @@ body {
     min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    padding: 0;
+    /* വശങ്ങളിൽ സ്പേസ് (Gap) നിർബന്ധമായും വരാൻ ഇത് സഹായിക്കും */
+    padding: 20px; 
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    /* വശങ്ങളിൽ ഗ്യാപ്പ് വരാൻ വേണ്ടി വീതി കൃത്യമായി കുറച്ചു */
-    width: 260px;        /* FIXED WIDTH - ഇത് മാറ്റരുത് */
+    /* പഴയ സൈറ്റിലെ അതേ Slim ലുക്കിന് വേണ്ടി താഴെ മാറ്റം വരുത്തി */
+    width: 260px !important;    /* വീതി ഉറപ്പിച്ചു */
+    max-width: 260px;           /* ഇതിൽ കൂടുതൽ വികസിക്കില്ല */
     padding: 20px;       
     border-radius: 20px; 
     box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
     text-align: center;
     position: relative;
     z-index: 2;
-    /* സ്ക്രീനിന്റെ നടുവിൽ തന്നെയാണെന്ന് ഉറപ്പാക്കാൻ */
-    margin-left: auto;
-    margin-right: auto;
+    /* വശങ്ങളിൽ തുല്യമായ ഗ്യാപ്പ് വരാൻ */
+    margin: auto; 
 }
 
 h2 { 
@@ -32,14 +33,6 @@ h2 {
     margin-bottom: 15px; 
     color: #333; 
     font-weight: 700;
-}
-
-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: #555;
-    display: block;
-    margin-bottom: 4px;
 }
 
 /* ഇൻപുട്ടുകൾ പഴയ സൈറ്റിലെ പോലെ സ്ലിം ആക്കി */
@@ -70,7 +63,7 @@ button {
 }
 
 .percent-display {
-    font-size: 30px;    
+    font-size: 28px;    
     font-weight: 800;
     color: #ff0081;
     margin-top: 10px;
