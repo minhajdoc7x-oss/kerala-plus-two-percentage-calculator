@@ -2,14 +2,17 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     display: flex;
-    /* താഴെ പറയുന്ന മൂന്ന് വരികളാണ് ബോക്സിനെ സ്ക്രീനിന്റെ നടുവിൽ നിർത്തുന്നത് */
-    justify-content: center; 
-    align-items: center;     
-    min-height: 100vh;       
-    
     flex-direction: column;
+    align-items: center;     /* Horizontal-ആയി നടുവിൽ നിർത്താൻ */
+    
+    /* ബോക്സിനെ മുകളിലേക്ക് മാറ്റാൻ താഴെ പറയുന്ന മാറ്റങ്ങൾ ശ്രദ്ധിക്കുക */
+    justify-content: flex-start; /* മുകളിൽ നിന്ന് തുടങ്ങാൻ വേണ്ടി */
+    padding-top: 40px;           /* മുകളിൽ നിന്ന് എത്ര ഗ്യാപ്പ് വേണമെന്ന് ഇവിടെ തീരുമാനിക്കാം (40px-60px നല്ലതാണ്) */
+    
+    min-height: 100vh; 
     margin: 0;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -24,10 +27,10 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
-    /* ഉള്ളിലുള്ള കാര്യങ്ങളും കൃത്യമായി അലൈൻ ചെയ്യാൻ */
+    /* ആവശ്യമെങ്കിൽ ഒരു ചെറിയ margin-top കൂടി നൽകാം */
+    margin-top: 20px; 
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 h2 { 
@@ -46,7 +49,6 @@ label {
     margin-bottom: 2px;
 }
 
-/* ഇൻപുട്ടുകളുടെ സൈസും അകലവും */
 select, input {
     width: 100%;      
     height: 42px;       
@@ -59,7 +61,6 @@ select, input {
     background: #fdfdfd;
 }
 
-/* ബട്ടണുകൾ */
 button {
     height: 45px;       
     font-size: 16px;
