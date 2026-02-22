@@ -1,71 +1,45 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
-    
-    /* ബോക്സ് കൃത്യം നടുവിൽ വരാൻ */
     display: flex;
     justify-content: center; 
     align-items: center;     
     min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    padding: 0;
+    /* Chrome-ൽ സൈഡ് ഗ്യാപ്പ് നിർബന്ധമായും വരാൻ ഇത് സഹായിക്കും */
+    padding: 20px; 
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
+    /* വശങ്ങളിൽ ഗ്യാപ്പ് വരാൻ 90% വീതി നൽകുക */
+    width: 90% !important;   
+    /* സ്ക്രീൻ എത്ര വലുതായാലും ബോക്സ് സ്ലിം ആയി ഇരിക്കാൻ ഇത് സഹായിക്കും */
+    max-width: 290px !important;    
     
-    /* ബോക്സ് വല്ലാതെ വികസിക്കാതിരിക്കാൻ താഴെ മാറ്റം വരുത്തി */
-    width: 280px;        /* FIXED WIDTH - ഇത് നിനക്ക് വേണ്ട സ്ലിം ലുക്ക് നൽകും */
-    padding: 20px;       
+    padding: 25px 20px;       
     border-radius: 20px; 
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
     text-align: center;
     position: relative;
     z-index: 2;
-    
-    /* മൊബൈലിൽ വശങ്ങളിൽ തുല്യമായ ഗ്യാപ്പ് വരാൻ */
     margin: auto; 
+    box-sizing: border-box;
 }
 
+/* Chrome-ൽ ലേബൽ വലിപ്പം നിയന്ത്രിക്കാൻ */
 h2 { 
-    font-size: 17px;    
+    font-size: 18px;    
     margin-bottom: 15px; 
-    color: #333; 
-    font-weight: 700;
 }
 
-/* ഇൻപുട്ടുകൾ സ്ലിം ആക്കി */
-select, input {
+/* ഇൻപുട്ടുകൾ ബോക്സിന് ഉള്ളിൽ ഒതുങ്ങി നിൽക്കാൻ */
+input, select {
     width: 100%;      
     height: 38px;       
-    padding: 0 10px;    
     margin: 6px 0;      
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 13px;    
-    box-sizing: border-box;
-    background: #fdfdfd;
-}
-
-button {
-    height: 42px;       
-    font-size: 14px;
-    margin-top: 10px;
-    width: 100%;
-    background-color: #ff0081;
-    color: #fff;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.footer { 
-    margin-top: 15px;
-    font-size: 11px; 
-    color: white; 
-    opacity: 0.8;
+    box-sizing: border-box; /* ഇത് വളരെ പ്രധാനമാണ് */
 }
