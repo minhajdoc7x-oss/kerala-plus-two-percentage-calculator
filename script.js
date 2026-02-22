@@ -1,40 +1,49 @@
 const batchData = {
-    science: ["English", "Second Language", "Physics", "Chemistry", "Biology/Comp Science", "Mathematics"],
-    commerce: ["English", "Second Language", "Business Studies", "Economics", "Accountancy", "Comp App/Pol Science/Maths"],
-    humanities: ["English", "Second Language", "History", "Economics", "Political Science", "Sociology"]
+    science: ["English", "Malayalam/Hindi", "Physics", "Chemistry", "Biology/Computer Science", "Mathematics"],
+    commerce: ["English", "Malayalam/Hindi", "Business Studies", "Economics", "Accountancy", "Comp App/Pol Science/Maths"],
+    humanities: ["English", "Malayalam/Hindi", "History", "Economics", "Political Science", "Sociology"]
 };
-
-// സൈറ്റ് ലോഡ് ചെയ്യുമ്പോൾ തന്നെ സബ്ജക്റ്റുകൾ കാണിക്കാൻ
-window.onload = updateSubjects;
 
 function updateSubjects() {
     const batch = document.getElementById('batchSelect').value;
-    const subjects = batchData[batch];
     const container = document.getElementById('subjectInputs');
-    container.innerHTML = ""; // പഴയത് ക്ലിയർ ചെയ്യാൻ
+    container.innerHTML = "";
 
-    subjects.forEach((sub, index) => {
-        container.innerHTML += `<input type="number" id="sub${index}" placeholder="${sub} (Out of 200)">`;
+    if (batch === "") {
+        container.innerHTML = "<p style='color: #666;'>Please select your batch to continue.</p>";
+        return;
+    }
+
+    batchData[batch].forEach((sub, index) => {
+        container.innerHTML += `<input type="number" id="sub${index}" placeholder="${sub} (Max 200)">`;
     });
 }
 
 function calculatePercentage() {
-    let totalMarks = 0;
-    for (let i = 0; i < 6; i++) {
-        totalMarks += parseFloat(document.getElementById(`sub${i}`).value) || 0;
+    const batch = document.getElementById('batchSelect').value;
+    if (batch === "") {
+        alert("Please choose a batch first!");
+        return;
     }
 
-    // പ്ലസ് ടു പെർസെന്റേജ് സൂത്രവാക്യം
+    let totalMarks = 0;
+    for (let i = 0; i < 6; i++) {
+        let mark = parseFloat(document.getElementById(`sub${i}`).value) || 0;
+        totalMarks += mark;
+    }
+
+    // Formula: (Total Marks / 1200) * 100
     let percentage = (totalMarks / 1200) * 100;
 
-    let resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = `
-        <div class="final-score">Total: ${totalMarks} / 1200</div>
+    document.getElementById('result').innerHTML = `
+        <div style="font-size: 18px; color: #333;">Total Score: ${totalMarks} / 1200</div>
         <div class="percent-display">${percentage.toFixed(2)}%</div>
     `;
 }
 
 function clearAll() {
-    updateSubjects(); // ഇൻപുട്ടുകൾ റീസെറ്റ് ചെയ്യാൻ
+    document.getElementById('batchSelect').value = "";
+    document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
+    updateSubjects();
 }
