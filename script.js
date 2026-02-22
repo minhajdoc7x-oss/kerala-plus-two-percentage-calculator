@@ -1,6 +1,6 @@
 const batchData = {
     science: ["English", "Malayalam/Hindi", "Physics", "Chemistry", "Biology/CS", "Mathematics"],
-    commerce: ["English", "Malayalam/Hindi", "Business Studies", "Economics", "Accountancy", "Comp App/Maths/Stat"],
+    commerce: ["English", "Malayalam/Hindi", "Business Studies", "Economics", "Accountancy", "Comp Application/Maths/Stat/poli"],
     humanities: ["English", "Malayalam/Hindi", "History", "Economics", "Political Science", "Sociology"]
 };
 
