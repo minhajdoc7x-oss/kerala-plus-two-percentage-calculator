@@ -51,20 +51,22 @@ function calculatePercentage() {
 
     let percentage = (totalMarks / 1200) * 100;
 
-    // റിസൾട്ട് കാണിക്കുന്നു
-    document.getElementById('result').innerHTML = `
+    // റിസൾട്ട് കാണിക്കുന്ന ഡിവിഷൻ
+    const resultDiv = document.getElementById('result');
+
+    // റിസൾട്ട് HTML സെറ്റ് ചെയ്യുന്നു
+    resultDiv.innerHTML = `
         <div style="margin-top:15px;">
             <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / 1200</div>
             <div class="percent-display">${percentage.toFixed(2)}%</div>
         </div>
     `;
 
-    // --- ഇതാ മുകളിലോട്ട് പോകാനുള്ള കോഡ് ---
-    // ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ പേജ് ഓട്ടോമാറ്റിക്കായി ടോപ്പിലേക്ക് വരും
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    // --- ഓപ്പോസിറ്റ് മാറ്റം (താഴേക്ക് വരാൻ) ---
+    // റിസൾട്ട് കാണിക്കുമ്പോൾ പേജ് തനിയെ റിസൾട്ട് ബോക്സിലേക്ക് സ്ക്രോൾ ചെയ്യും
+    setTimeout(() => {
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
 
     // Confetti Effect
     confetti({
@@ -79,7 +81,7 @@ function clearAll() {
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
     
-    // ക്ലിയർ ചെയ്യുമ്പോഴും മുകളിലേക്ക് സ്ക്രോൾ ചെയ്യാൻ ഇത് സഹായിക്കും
+    // ക്ലിയർ ചെയ്യുമ്പോൾ മാത്രം പേജ് മുകളിലേക്ക് പോകുന്നത് നിലനിർത്താം
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
