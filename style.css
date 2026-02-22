@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    background: linear-gradient(135deg, #4e73df, #20c997);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,81 +11,91 @@ body {
     box-sizing: border-box;
 }
 
-/* Glass Container */
+/* Clean Soft Card Container */
 .container {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+    background: #f1f3f5;
     width: 100%;
-    max-width: 340px;
-    padding: 28px 22px;
-    border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    max-width: 370px;
+    padding: 35px 25px;
+    border-radius: 28px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     text-align: center;
     animation: fadeIn 0.6s ease-in-out;
-    border: 1px solid rgba(255,255,255,0.3);
 }
 
+/* Heading */
 h2 {
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: white;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
 }
 
+/* Label */
 label {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
-    color: white;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
 }
 
+/* Inputs & Select */
 input, select {
     width: 100%;
-    height: 42px;
-    margin: 8px 0;
-    padding: 6px 12px;
-    border-radius: 10px;
-    border: none;
-    font-size: 14px;
+    height: 48px;
+    margin-bottom: 15px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid #dcdcdc;
+    background: #e9ecef;
+    font-size: 15px;
     outline: none;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
+/* Blue Focus Border */
 input:focus, select:focus {
-    box-shadow: 0 0 10px rgba(255,255,255,0.7);
+    border-color: #4e73df;
+    box-shadow: 0 0 8px rgba(78,115,223,0.3);
+    background: #ffffff;
 }
 
 /* Buttons */
 button {
     width: 100%;
-    height: 45px;
+    height: 50px;
     border: none;
     border-radius: 12px;
     margin-top: 12px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s;
+    font-size: 15px;
+    transition: 0.3s ease;
 }
 
+/* Calculate Button */
 .bubbly-button {
-    background: linear-gradient(45deg, #ffffff, #e0e0e0);
-    color: #4e73df;
+    background: linear-gradient(to right, #4e73df, #20c997);
+    color: white;
 }
 
 .bubbly-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Clear Button */
 .clear-btn {
-    background: rgba(255,255,255,0.3);
+    background: #6c757d;
     color: white;
 }
 
 .clear-btn:hover {
-    background: rgba(255,255,255,0.5);
+    background: #5a6268;
 }
 
-/* RESULT SECTION */
+/* RESULT SECTION (UNCHANGED STYLE) */
 .result-content {
     margin-top: 30px;
     text-align: center;
@@ -95,10 +105,9 @@ button {
 .big-percentage {
     font-size: 55px;
     font-weight: 800;
-    background: linear-gradient(45deg, #ffffff, #ffe600);
+    background: linear-gradient(45deg, #4e73df, #20c997);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 25px rgba(255,255,255,0.6);
     animation: pop 0.5s ease;
 }
 
@@ -106,13 +115,13 @@ button {
 .total-display {
     margin-top: 18px;
     font-size: 16px;
-    color: white;
+    color: #333;
 }
 
 .total-display span {
     font-weight: bold;
     font-size: 20px;
-    color: #ffe600;
+    color: #20c997;
 }
 
 /* Footer */
@@ -120,6 +129,7 @@ button {
     margin-top: 25px;
     color: white;
     font-size: 14px;
+    text-align: center;
 }
 
 /* Animations */
