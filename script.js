@@ -43,23 +43,20 @@ function calculatePercentage() {
 
     let percentage = (totalMarks / 1200) * 100;
 
-    // റിസൾട്ട് ഡിസ്‌പ്ലേ സെറ്റ് ചെയ്യുന്നു
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
-        <div style="margin-top:15px; padding: 10px; background: #f9f9f9; border-radius: 10px;">
+        <div id="targetResult" style="margin-top:15px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 2px solid #1cc88a;">
             <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / 1200</div>
-            <div class="percent-display" style="font-size: 24px; font-weight: bold; color: #1cc88a;">${percentage.toFixed(2)}%</div>
+            <div class="percent-display" style="font-size: 28px; font-weight: bold; color: #1cc88a;">${percentage.toFixed(2)}%</div>
         </div>
     `;
 
-    // --- ഇതാണ് താഴേക്ക് സ്ക്രോൾ ചെയ്യാനുള്ള ഉറപ്പുള്ള വഴി ---
-    // ബട്ടൺ അമർത്തി റിസൾട്ട് വന്നാൽ ഉടൻ പേജ് താഴേക്ക് നീങ്ങും
+    // --- മൊബൈലിലും ലാപ്ടോപ്പിലും ഒരേപോലെ താഴേക്ക് വരാനുള്ള കോഡ് ---
     setTimeout(() => {
-        window.scrollTo({
-            top: document.body.scrollHeight, // പേജിന്റെ ഏറ്റവും താഴെ ഭാഗത്തേക്ക്
-            behavior: 'smooth'
-        });
-    }, 100);
+        const element = document.getElementById("targetResult");
+        // 'block: end' നൽകിയാൽ മൊബൈലിൽ കീബോർഡ് ഉണ്ടെങ്കിൽ പോലും റിസൾട്ട് തെളിഞ്ഞു കാണും
+        element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 150);
 
     confetti({
         particleCount: 180,
@@ -72,7 +69,5 @@ function clearAll() {
     document.getElementById('batchSelect').value = "";
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
-    
-    // ക്ലിയർ ചെയ്യുമ്പോൾ മുകളിലേക്ക് പോകാൻ
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
