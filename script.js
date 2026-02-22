@@ -56,24 +56,37 @@ function calculatePercentage() {
     }
 
     const percentage = (totalMarks / 1200) * 100;
-    const grade = calculateGrade(percentage);
 
     // 🎉 Confetti Effect
     confetti({
-        particleCount: 200,
-        spread: 100,
+        particleCount: 180,
+        spread: 90,
         origin: { y: 0.6 }
     });
 
+    // Circle circumference (2 * π * r) → r = 50 → 314
+    const circleOffset = 314 - (314 * percentage / 100);
+
     document.getElementById('result').innerHTML = `
         <div class="result-content">
-            <div>Total Marks: <strong>${totalMarks}</strong> / 1200</div>
-            <div class="percent-display">${percentage.toFixed(2)}%</div>
-            <div class="grade-display">Grade: ${grade}</div>
+            
+            <div class="circle">
+                <svg width="140" height="140">
+                    <circle cx="70" cy="70" r="50" class="bg-circle"/>
+                    <circle cx="70" cy="70" r="50" 
+                        class="progress-circle"
+                        style="stroke-dashoffset: ${circleOffset};"/>
+                </svg>
+                <div class="circle-text">${percentage.toFixed(2)}%</div>
+            </div>
+
+            <div class="total-display">
+                Total Marks: <strong>${totalMarks}</strong> / 1200
+            </div>
+
         </div>
     `;
 }
-
 
 function clearAll() {
     document.getElementById('batchSelect').value = "";
