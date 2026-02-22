@@ -4,35 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>+2 Percentage Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="watermark">Minhaj</div>
-
     <div class="container">
         <h2>📊 Percentage Calculator</h2>
-        
-        <label for="batchSelect">Choose Your Batch:</label>
+        <label>Choose Your Batch:</label>
         <select id="batchSelect" onchange="updateSubjects()">
             <option value="">-- None --</option>
             <option value="science">Science</option>
             <option value="commerce">Commerce</option>
             <option value="humanities">Humanities</option>
         </select>
-
-        <div id="subjectInputs" class="input-group">
-            </div>
-
+        <div id="subjectInputs"></div>
         <button class="bubbly-button" onclick="calculatePercentage()">Calculate %</button>
         <button class="bubbly-button" onclick="clearAll()" style="background: #6c757d; margin-top: 10px;">Clear All</button>
-
         <div id="result" class="result-box"></div>
     </div>
-
-    <div class="footer">
-        © 2026 | Website created by Minhaj
-    </div>
-
+    <div class="footer">© 2026 | Website created by Minhaj</div>
     <script src="script.js"></script>
 </body>
 </html>
