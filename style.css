@@ -5,6 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-direction: column;
     margin: 0;
 }
 
@@ -16,6 +17,8 @@ body {
     max-width: 450px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
 }
 
 select, input {
@@ -24,7 +27,7 @@ select, input {
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 10px;
-    font-size: 15px;
+    box-sizing: border-box;
 }
 
 .bubbly-button {
@@ -36,21 +39,33 @@ select, input {
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
     box-shadow: 0 4px 15px rgba(255, 0, 130, 0.3);
 }
 
-.result-box {
-    margin-top: 20px;
-}
+.result-box { margin-top: 20px; }
 
 .percent-display {
     font-size: 45px;
     font-weight: bold;
     color: #ff0081;
+    display: block;
 }
 
-.final-score {
-    font-size: 18px;
-    color: #333;
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 80px;
+    color: rgba(255,255,255,0.07);
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.footer { 
+    margin-top: 20px;
+    font-size: 14px; 
+    color: white; 
+    z-index: 2;
 }
