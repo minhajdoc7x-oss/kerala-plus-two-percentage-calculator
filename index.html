@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>+2 Percentage Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>📊 Percentage Calculator</h2>
+        
+        <label>ബാച്ച് സെലക്ട് ചെയ്യുക:</label>
+        <select id="batchSelect" onchange="updateSubjects()">
+            <option value="science">Science</option>
+            <option value="commerce">Commerce</option>
+            <option value="humanities">Humanities</option>
+        </select>
+
+        <div id="subjectInputs" class="input-group">
+            </div>
+
+        <button class="bubbly-button" onclick="calculatePercentage()">Calculate %</button>
+        <button class="bubbly-button" onclick="clearAll()" style="background: #6c757d;">Clear</button>
+
+        <div id="result" class="result-box"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
