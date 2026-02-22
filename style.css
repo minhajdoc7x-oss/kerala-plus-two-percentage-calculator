@@ -8,82 +8,106 @@ body {
     flex-direction: column;
     margin: 0;
     overflow-x: hidden;
-    padding: 10px; /* വശങ്ങളിൽ കൃത്യമായ ഗ്യാപ്പ് നൽകാൻ */
+    padding: 10px; 
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    width: 100%;          
-    max-width: 400px;    /* പഴയ മോഡലിലെ പോലെ വീതി കുറച്ചു */
-    padding: 20px;       /* ബോക്സിനുള്ളിലെ സ്പേസ് അഡ്ജസ്റ്റ് ചെയ്തു */
-    border-radius: 15px;
+    width: 95%;          
+    max-width: 380px;    /* പഴയ മോഡലിന്റെ അതേ വീതി */
+    padding: 15px;       /* പാഡിംഗ് കുറച്ച് ഒതുക്കമുള്ളതാക്കി */
+    border-radius: 20px; /* വശങ്ങളിലെ വളവ് കൂട്ടി */
     box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
     text-align: center;
     position: relative;
     z-index: 2;
-    margin: 10px 0;      /* സ്ക്രീനിന്റെ മുകളിലും താഴെയും സ്പേസ് കുറച്ചു */
 }
 
 h2 { 
-    font-size: 22px; 
+    font-size: 20px; 
+    margin-top: 5px;
     margin-bottom: 15px; 
     color: #333; 
+    font-weight: 700;
 }
 
-/* ഇൻപുട്ട് ഫീൽഡുകൾ തമ്മിലുള്ള അകലം കുറച്ചു */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* ഇൻപുട്ടുകളുടെ സൈസും ബോക്സുകൾ തമ്മിലുള്ള ദൂരവും (Distance) */
 select, input {
     width: 100%;      
-    padding: 10px;      /* പഴയതുപോലെ കോംപാക്റ്റ് ആക്കി */
-    margin: 5px 0;      /* ബോക്സുകൾ തമ്മിലുള്ള അകലം കുറച്ചു (5px) */
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 15px;
+    height: 42px;       /* പഴയ മോഡലിലെ പോലെ ഉയരം കുറച്ചു */
+    padding: 0 12px;    
+    margin: 6px 0;      /* ബോക്സുകൾ തമ്മിലുള്ള കറക്റ്റ് ദൂരം */
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
     box-sizing: border-box;
+    background: #fdfdfd;
 }
 
-/* ബട്ടണുകളുടെ വലിപ്പം */
+/* ബട്ടണുകൾ */
 button {
-    display: block;
-    font-size: 1em;
-    padding: 12px;
-    margin-top: 10px;   /* ബട്ടണിന് മുകളിലെ ഗ്യാപ്പ് കുറച്ചു */
+    height: 45px;       
+    font-size: 16px;
+    margin-top: 10px;
     width: 100%;
     background-color: #ff0081;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(255, 0, 130, 0.3);
+    transition: 0.3s;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ക്ലിയർ ബട്ടൺ */
+button[onclick="clearAll()"] {
+    background-color: #6c757d;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.2);
 }
 
 /* റിസൾട്ട് വരുന്ന ഭാഗം */
 .result-box {
-    margin-top: 15px;
+    margin-top: 10px;
+    padding-top: 5px;
 }
 
 .percent-display {
-    font-size: 38px;    /* സ്ക്രീനിൽ ഒതുങ്ങാൻ വലിപ്പം അല്പം കുറച്ചു */
-    font-weight: bold;
+    font-size: 38px;    
+    font-weight: 800;
     color: #ff0081;
-    margin-top: 0px;
+    margin-top: -5px;
 }
 
-/* വാട്ടർമാർക്ക് പഴയ സൈറ്റിലേതുപോലെ */
+/* വാട്ടർമാർക്ക് */
 .watermark {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 60px;
+    font-size: 65px;
     color: rgba(255,255,255,0.07);
-    font-weight: bold;
+    font-weight: 900;
     pointer-events: none;
     z-index: 1;
 }
 
 .footer { 
-    margin-top: 10px;
-    font-size: 13px; 
+    margin-top: 15px;
+    font-size: 12px; 
     color: white; 
+    opacity: 0.9;
 }
