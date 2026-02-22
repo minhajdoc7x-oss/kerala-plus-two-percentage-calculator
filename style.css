@@ -134,3 +134,13 @@ button {
         max-width: 100%;
     }
 }
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 15px auto;
+    padding: 4px;
+    background: linear-gradient(45deg, #4e73df, #1cc88a);
+}
