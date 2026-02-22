@@ -32,43 +32,35 @@ function calculatePercentage() {
     }
 
     let totalMarks = 0;
-
     for (let i = 0; i < 6; i++) {
         const value = document.getElementById(`sub${i}`).value;
-
-        if (value === "") {
-            alert("Please enter all subject marks!");
+        if (value === "" || value > 200 || value < 0) {
+            alert("Please enter valid marks for all subjects!");
             return;
         }
-
-        if (value > 200 || value < 0) {
-            alert("Marks must be between 0 and 200!");
-            return;
-        }
-
         totalMarks += parseFloat(value);
     }
 
     let percentage = (totalMarks / 1200) * 100;
 
-    // റിസൾട്ട് കാണിക്കുന്ന ഡിവിഷൻ
+    // റിസൾട്ട് ഡിസ്‌പ്ലേ സെറ്റ് ചെയ്യുന്നു
     const resultDiv = document.getElementById('result');
-
-    // റിസൾട്ട് HTML സെറ്റ് ചെയ്യുന്നു
     resultDiv.innerHTML = `
-        <div style="margin-top:15px;">
+        <div style="margin-top:15px; padding: 10px; background: #f9f9f9; border-radius: 10px;">
             <div style="font-size: 16px;">Total: <b>${totalMarks}</b> / 1200</div>
-            <div class="percent-display">${percentage.toFixed(2)}%</div>
+            <div class="percent-display" style="font-size: 24px; font-weight: bold; color: #1cc88a;">${percentage.toFixed(2)}%</div>
         </div>
     `;
 
-    // --- ഓപ്പോസിറ്റ് മാറ്റം (താഴേക്ക് വരാൻ) ---
-    // റിസൾട്ട് കാണിക്കുമ്പോൾ പേജ് തനിയെ റിസൾട്ട് ബോക്സിലേക്ക് സ്ക്രോൾ ചെയ്യും
+    // --- ഇതാണ് താഴേക്ക് സ്ക്രോൾ ചെയ്യാനുള്ള ഉറപ്പുള്ള വഴി ---
+    // ബട്ടൺ അമർത്തി റിസൾട്ട് വന്നാൽ ഉടൻ പേജ് താഴേക്ക് നീങ്ങും
     setTimeout(() => {
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        window.scrollTo({
+            top: document.body.scrollHeight, // പേജിന്റെ ഏറ്റവും താഴെ ഭാഗത്തേക്ക്
+            behavior: 'smooth'
+        });
     }, 100);
 
-    // Confetti Effect
     confetti({
         particleCount: 180,
         spread: 90,
@@ -81,9 +73,6 @@ function clearAll() {
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
     
-    // ക്ലിയർ ചെയ്യുമ്പോൾ മാത്രം പേജ് മുകളിലേക്ക് പോകുന്നത് നിലനിർത്താം
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    // ക്ലിയർ ചെയ്യുമ്പോൾ മുകളിലേക്ക് പോകാൻ
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
