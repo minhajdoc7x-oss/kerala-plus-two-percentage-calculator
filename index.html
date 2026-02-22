@@ -5,20 +5,17 @@
     <title>+2 Percentage Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
 
-     <img src="myphoto.png" class="profile-pic" alt="Profile Photo">
+        <img src="myphoto.png" class="profile-pic" alt="Profile Photo">
         <h2>+2 Percentage Calculator</h2>
 
         <label for="batchSelect">Choose Your Batch:</label>
@@ -29,10 +26,13 @@
             <option value="humanities">Humanities</option>
         </select>
 
-        <!-- Subject Inputs Appear Here -->
+        <div id="totalMarkContainer" style="display:none; margin-top: 15px; text-align: left;">
+            <label for="maxTotal" style="font-weight: 600;">Enter Total Mark:</label>
+            <input type="number" id="maxTotal" placeholder="Enter Total Mark (e.g. 1200)" value="1200">
+        </div>
+
         <div id="subjectInputs"></div>
 
-        <!-- Buttons -->
         <button class="bubbly-button" onclick="calculatePercentage()">
             Calculate Percentage
         </button>
@@ -41,7 +41,6 @@
             Clear All
         </button>
 
-        <!-- Result -->
         <div id="result" class="result-box"></div>
     </div>
 
@@ -49,7 +48,6 @@
         © 2026 | Website created by Minhaj
     </div>
 
-    <!-- External JS -->
     <script src="script.js"></script>
 
 </body>
