@@ -2,27 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>+2 Percentage Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container">
-        <h2>📊 Percentage Calculator</h2>
-        <label>Choose Your Batch:</label>
+        <h2>📊 +2 Percentage Calculator</h2>
+
+        <label for="batchSelect">Choose Your Batch:</label>
         <select id="batchSelect" onchange="updateSubjects()">
-            <option value="">-- None --</option>
+            <option value="">-- Select Batch --</option>
             <option value="science">Science</option>
             <option value="commerce">Commerce</option>
             <option value="humanities">Humanities</option>
         </select>
+
+        <!-- Subject Inputs Appear Here -->
         <div id="subjectInputs"></div>
-        <button class="bubbly-button" onclick="calculatePercentage()">Calculate %</button>
-        <button class="bubbly-button" onclick="clearAll()" style="background: #6c757d; margin-top: 10px;">Clear All</button>
+
+        <!-- Buttons -->
+        <button class="bubbly-button" onclick="calculatePercentage()">
+            Calculate Percentage
+        </button>
+
+        <button class="bubbly-button clear-btn" onclick="clearAll()">
+            Clear All
+        </button>
+
+        <!-- Result -->
         <div id="result" class="result-box"></div>
     </div>
-    <div class="footer">© 2026 | Website created by Minhaj</div>
+
+    <div class="footer">
+        © 2026 | Website created by Minhaj
+    </div>
+
+    <!-- External JS -->
     <script src="script.js"></script>
+
 </body>
 </html>
