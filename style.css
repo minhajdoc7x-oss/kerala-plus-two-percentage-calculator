@@ -7,29 +7,28 @@ body {
     min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    /* വശങ്ങളിൽ സ്പേസ് ഉറപ്പാക്കാൻ padding നൽകി */
-    padding: 0 25px; 
+    padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    /* വീതി 80% ആക്കി കുറച്ചു, അപ്പോൾ സൈഡിൽ നല്ല ഗ്യാപ്പ് കിട്ടും */
-    width: 80%;          
-    max-width: 280px;    
+    /* വശങ്ങളിൽ ഗ്യാപ്പ് വരാൻ വേണ്ടി വീതി കൃത്യമായി കുറച്ചു */
+    width: 260px;        /* FIXED WIDTH - ഇത് മാറ്റരുത് */
     padding: 20px;       
     border-radius: 20px; 
     box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
     text-align: center;
     position: relative;
     z-index: 2;
-    /* മുകളിലും താഴെയും വശങ്ങളിലും ഗ്യാപ്പ് സെറ്റ് ചെയ്തു */
-    margin: 20px auto; 
+    /* സ്ക്രീനിന്റെ നടുവിൽ തന്നെയാണെന്ന് ഉറപ്പാക്കാൻ */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 { 
-    font-size: 16px;    
+    font-size: 17px;    
     margin-bottom: 15px; 
     color: #333; 
     font-weight: 700;
@@ -43,12 +42,12 @@ label {
     margin-bottom: 4px;
 }
 
-/* ഇൻപുട്ട് ബോക്സുകൾ തടിക്കാതെ ഒതുക്കി വെക്കാൻ */
+/* ഇൻപുട്ടുകൾ പഴയ സൈറ്റിലെ പോലെ സ്ലിം ആക്കി */
 select, input {
     width: 100%;      
-    height: 38px;       
+    height: 36px;       
     padding: 0 10px;    
-    margin: 6px 0;      
+    margin: 5px 0;      
     border-radius: 10px;
     border: 1px solid #ddd;
     font-size: 13px;    
@@ -57,9 +56,9 @@ select, input {
 }
 
 button {
-    height: 42px;       
+    height: 40px;       
     font-size: 14px;
-    margin-top: 12px;
+    margin-top: 10px;
     width: 100%;
     background-color: #ff0081;
     color: #fff;
@@ -74,6 +73,7 @@ button {
     font-size: 30px;    
     font-weight: 800;
     color: #ff0081;
+    margin-top: 10px;
 }
 
 .footer { 
