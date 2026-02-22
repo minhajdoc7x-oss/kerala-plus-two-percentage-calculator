@@ -1,7 +1,7 @@
 const batchData = {
-    science: ["English", "Malayalam/Hindi", "Physics", "Chemistry", "Biology/CS", "Mathematics"],
-    commerce: ["English", "Malayalam/Hindi", "Business Studies", "Economics", "Accountancy", "Comp App/Maths/Stat/Poli"],
-    humanities: ["English", "Malayalam/Hindi", "History", "Economics", "Political Science", "Sociology"]
+    science: ["English", "Second Language", "Physics", "Chemistry", "Biology/CS", "Mathematics"],
+    commerce: ["English", "Second Language", "Business Studies", "Economics", "Accountancy", "Comp App/Maths/Stat/Poli"],
+    humanities: ["English", "Second Language", "History", "Economics", "Political Science", "Sociology"]
 };
 
 function updateSubjects() {
