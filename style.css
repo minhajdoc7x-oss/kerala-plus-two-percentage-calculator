@@ -85,56 +85,34 @@ button {
     background: rgba(255,255,255,0.5);
 }
 
-/* Result Section */
+/* RESULT SECTION */
 .result-content {
-    margin-top: 25px;
+    margin-top: 30px;
     text-align: center;
 }
 
-/* Circular Percentage */
-.circle {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
+/* BIG ATTRACTIVE PERCENTAGE */
+.big-percentage {
+    font-size: 55px;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ffffff, #ffe600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px rgba(255,255,255,0.6);
+    animation: pop 0.5s ease;
 }
 
-svg {
-    transform: rotate(-90deg);
-}
-
-.bg-circle {
-    fill: none;
-    stroke: rgba(255,255,255,0.3);
-    stroke-width: 12;
-}
-
-.progress-circle {
-    fill: none;
-    stroke: url(#gradientStroke);
-    stroke: #ffffff;
-    stroke-width: 12;
-    stroke-linecap: round;
-    stroke-dasharray: 314;
-    transition: stroke-dashoffset 1s ease-in-out;
-    filter: drop-shadow(0 0 8px white);
-}
-
-.circle-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 26px;
-    font-weight: bold;
-    color: white;
-}
-
-/* Total Text */
+/* Stylish Total Marks */
 .total-display {
     margin-top: 18px;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
+}
+
+.total-display span {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffe600;
 }
 
 /* Footer */
@@ -145,14 +123,23 @@ svg {
 }
 
 /* Animations */
+@keyframes pop {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Mobile Optimization */
+/* Mobile */
 @media (max-width: 400px) {
     .container {
         max-width: 100%;
+    }
+
+    .big-percentage {
+        font-size: 45px;
     }
 }
