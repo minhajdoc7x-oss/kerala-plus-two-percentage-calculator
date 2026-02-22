@@ -2,15 +2,15 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     
-    /* ബോക്സ് സ്ക്രീനിന്റെ കൃത്യം നടുവിൽ വരാൻ താഴെ പറയുന്നവ സഹായിക്കും */
+    /* സ്ക്രീനിന്റെ നടുവിൽ വരാൻ ഈ വരികൾ നിർബന്ധമാണ് */
     display: flex;
-    justify-content: center; /* Vertical Center */
-    align-items: center;     /* Horizontal Center */
-    min-height: 100vh;       /* മൊബൈൽ സ്ക്രീനിന്റെ ഫുൾ ഹൈറ്റ് */
-    
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    padding: 0;
+    /* വശങ്ങളിൽ സ്പേസ് ഉറപ്പാക്കാൻ ബോഡിയിൽ പാഡിംഗ് നൽകി */
+    padding: 20px; 
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -18,12 +18,12 @@ body {
 .container {
     background: rgba(255, 255, 255, 0.95);
     
-    /* വശങ്ങളിൽ കൃത്യമായ Gap വരാൻ ഈ വരികൾ ശ്രദ്ധിക്കുക */
-    width: calc(100% - 70px);  /* സ്ക്രീൻ വീതിയിൽ നിന്ന് 70px കുറച്ചു (വശങ്ങളിൽ 35px വീതം ഗ്യാപ്പ്) */
-    max-width: 290px;          /* പഴയ സൈറ്റിലെ അതേ Slim ലുക്ക് നിലനിർത്താൻ */
+    /* വശങ്ങളിൽ ഗ്യാപ്പ് കിട്ടാൻ width കുറച്ചു */
+    width: 85%;          
+    max-width: 300px;    /* പഴയ വെബ്സൈറ്റിലെ അതേ Slim ലുക്കിന് വേണ്ടി */
     
     padding: 25px 20px;       
-    border-radius: 20px; 
+    border-radius: 25px; /* നല്ല വളവുകൾ നൽകി */
     box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
     text-align: center;
     position: relative;
@@ -31,70 +31,54 @@ body {
     
     /* സെന്ററിംഗ് പെർഫെക്റ്റ് ആക്കാൻ */
     margin: auto; 
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
 }
 
+/* തലക്കെട്ടുകൾ ഒതുക്കമുള്ളതാക്കി */
 h2 { 
     font-size: 18px;    
-    margin-bottom: 18px; 
+    margin-bottom: 15px; 
     color: #333; 
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
-/* പഴയ സൈറ്റിലെ പോലെ സ്ലിം ആയ ഇൻപുട്ടുകൾ */
+/* ഇൻപുട്ടുകൾ സ്ലിം ആക്കി */
 input, select {
     width: 100%;      
-    height: 40px;       
+    height: 38px;       
     padding: 0 12px;    
-    margin: 8px 0;      
-    border-radius: 12px;
-    border: 1px solid #e2e2e2;
-    font-size: 14px;    
+    margin: 6px 0;      
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 13px;    
     box-sizing: border-box;
-    background: #f9f9f9;
+    background: #fdfdfd;
 }
 
 /* ബട്ടണുകൾ */
 button {
-    height: 45px;       
-    font-size: 15px;
-    margin-top: 15px;
+    height: 42px;       
+    font-size: 14px;
+    margin-top: 12px;
     width: 100%;
     background-color: #ff0081;
     color: #fff;
-    border-radius: 12px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(255, 0, 130, 0.3);
-    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(255, 0, 130, 0.2);
 }
 
-button:active {
-    transform: scale(0.96);
+.percent-display {
+    font-size: 32px;    
+    font-weight: 800;
+    color: #ff0081;
 }
 
-/* ഫൂട്ടർ ബോക്സിന് താഴെ കൃത്യമായി വരാൻ */
 .footer { 
     margin-top: 20px;
     font-size: 11px; 
     color: white; 
     opacity: 0.9;
-    text-align: center;
-}
-
-/* വാട്ടർമാർക്ക് */
-.watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 60px;
-    color: rgba(255,255,255,0.07);
-    font-weight: 900;
-    pointer-events: none;
-    z-index: 1;
 }
