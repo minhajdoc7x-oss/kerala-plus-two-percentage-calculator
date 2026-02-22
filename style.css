@@ -2,44 +2,123 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    min-height: 100vh;       
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     flex-direction: column;
     margin: 0;
-    /* Chrome-ൽ സൈഡ് ഗ്യാപ്പ് നിർബന്ധമായും വരാൻ ഇത് സഹായിക്കും */
-    padding: 20px; 
+    padding: 20px;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    /* വശങ്ങളിൽ ഗ്യാപ്പ് വരാൻ 90% വീതി നൽകുക */
-    width: 90% !important;   
-    /* സ്ക്രീൻ എത്ര വലുതായാലും ബോക്സ് സ്ലിം ആയി ഇരിക്കാൻ ഇത് സഹായിക്കും */
-    max-width: 290px !important;    
-    
-    padding: 25px 20px;       
-    border-radius: 20px; 
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+    width: 100%;
+    max-width: 320px;
+    padding: 25px 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     text-align: center;
-    position: relative;
-    z-index: 2;
-    margin: auto; 
-    box-sizing: border-box;
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-/* Chrome-ൽ ലേബൽ വലിപ്പം നിയന്ത്രിക്കാൻ */
-h2 { 
-    font-size: 18px;    
-    margin-bottom: 15px; 
+h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
 }
 
-/* ഇൻപുട്ടുകൾ ബോക്സിന് ഉള്ളിൽ ഒതുങ്ങി നിൽക്കാൻ */
+label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
 input, select {
-    width: 100%;      
-    height: 38px;       
-    margin: 6px 0;      
-    box-sizing: border-box; /* ഇത് വളരെ പ്രധാനമാണ് */
+    width: 100%;
+    height: 40px;
+    margin: 8px 0;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #4e73df;
+    outline: none;
+    box-shadow: 0 0 5px rgba(78,115,223,0.5);
+}
+
+button {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.bubbly-button {
+    background: linear-gradient(45deg, #4e73df, #1cc88a);
+    color: white;
+}
+
+.bubbly-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.clear-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #5a6268;
+}
+
+.result-content {
+    margin-top: 15px;
+}
+
+.percent-display {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4e73df;
+    margin-top: 10px;
+    animation: pop 0.4s ease;
+}
+
+.grade-display {
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.footer {
+    margin-top: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Optimization */
+@media (max-width: 400px) {
+    .container {
+        max-width: 100%;
+    }
 }
