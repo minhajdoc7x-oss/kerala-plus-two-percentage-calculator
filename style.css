@@ -1,48 +1,57 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
+    
+    /* ബോക്സ് സ്ക്രീനിന്റെ കൃത്യം നടുവിൽ വരാൻ താഴെ പറയുന്നവ സഹായിക്കും */
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    min-height: 100vh;       
+    justify-content: center; /* Vertical Center */
+    align-items: center;     /* Horizontal Center */
+    min-height: 100vh;       /* മൊബൈൽ സ്ക്രീനിന്റെ ഫുൾ ഹൈറ്റ് */
+    
     flex-direction: column;
     margin: 0;
-    /* സ്ക്രീനിന്റെ അരികിൽ മുട്ടാതിരിക്കാൻ ബോഡിയിൽ പാഡിംഗ് നിർബന്ധമാണ് */
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    /* വശങ്ങളിൽ കൃത്യമായി വിടവ് (Gap) വരാൻ താഴെ പറയുന്ന വരികൾ ശ്രദ്ധിക്കുക */
-    width: calc(100% - 60px);   /* സ്ക്രീനിന്റെ വീതിയിൽ നിന്ന് 60px കുറച്ചു, അപ്പോൾ വശങ്ങളിൽ 30px വീതം ഗ്യാപ്പ് കിട്ടും */
-    max-width: 300px;           /* ബോക്സ് വല്ലാതെ മെലിയാതിരിക്കാൻ മാക്സിമം ലിമിറ്റ് */
-    padding: 25px 20px;         /* ഉള്ളിലെ സ്പേസ് അല്പം കൂട്ടി */
+    
+    /* വശങ്ങളിൽ കൃത്യമായ Gap വരാൻ ഈ വരികൾ ശ്രദ്ധിക്കുക */
+    width: calc(100% - 70px);  /* സ്ക്രീൻ വീതിയിൽ നിന്ന് 70px കുറച്ചു (വശങ്ങളിൽ 35px വീതം ഗ്യാപ്പ്) */
+    max-width: 290px;          /* പഴയ സൈറ്റിലെ അതേ Slim ലുക്ക് നിലനിർത്താൻ */
+    
+    padding: 25px 20px;       
     border-radius: 20px; 
     box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
     text-align: center;
     position: relative;
     z-index: 2;
-    margin: auto;               /* സെന്ററിൽ നിൽക്കാൻ */
+    
+    /* സെന്ററിംഗ് പെർഫെക്റ്റ് ആക്കാൻ */
+    margin: auto; 
+    display: flex;
+    flex-direction: column;
 }
 
 h2 { 
     font-size: 18px;    
-    margin-bottom: 15px; 
+    margin-bottom: 18px; 
     color: #333; 
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* ഇൻപുട്ടുകൾ പഴയ സൈറ്റിലെ (16844.jpg) അതേ മോഡലിൽ */
+/* പഴയ സൈറ്റിലെ പോലെ സ്ലിം ആയ ഇൻപുട്ടുകൾ */
 input, select {
     width: 100%;      
-    height: 42px;       /* പഴയ സൈറ്റിലെ ഇൻപുട്ടുകളുടെ അതേ ഉയരം */
-    padding: 0 15px;    
+    height: 40px;       
+    padding: 0 12px;    
     margin: 8px 0;      
     border-radius: 12px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #e2e2e2;
     font-size: 14px;    
     box-sizing: border-box;
     background: #f9f9f9;
@@ -61,20 +70,31 @@ button {
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 5px 15px rgba(255, 0, 130, 0.3);
+    transition: 0.3s;
 }
 
 button:active {
     transform: scale(0.96);
 }
 
+/* ഫൂട്ടർ ബോക്സിന് താഴെ കൃത്യമായി വരാൻ */
 .footer { 
     margin-top: 20px;
-    font-size: 12px; 
+    font-size: 11px; 
     color: white; 
     opacity: 0.9;
+    text-align: center;
 }
 
-/* സ്ക്രോളിംഗ് സ്മൂത്ത് ആക്കാൻ */
-html {
-    scroll-behavior: smooth;
+/* വാട്ടർമാർക്ക് */
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 60px;
+    color: rgba(255,255,255,0.07);
+    font-weight: 900;
+    pointer-events: none;
+    z-index: 1;
 }
