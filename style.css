@@ -4,51 +4,81 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100vh; 
     flex-direction: column;
     margin: 0;
+    overflow-x: hidden;
+    padding: 10px; /* വശങ്ങളിൽ അല്പം ഗ്യാപ്പ് നൽകാൻ */
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 450px;
+    width: 100%;          
+    max-width: 400px;    /* വീതി 480-ൽ നിന്ന് 400 ആക്കി കുറച്ചു */
+    padding: 15px 20px;  /* പാഡിംഗ് കുറച്ചു */
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     position: relative;
     z-index: 2;
 }
 
+h2 { 
+    font-size: 22px;    /* ഫോണ്ട് സൈസ് അല്പം കുറച്ചു */
+    color: #333; 
+    margin-bottom: 15px; 
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
 select, input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
+    width: 100%;      
+    padding: 10px;      /* 12-ൽ നിന്ന് 10 ആക്കി */
+    margin: 6px 0;      /* ഗ്യാപ്പ് കുറച്ചു */
+    border-radius: 8px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    font-size: 14px;    /* വായന സുഖമാക്കാൻ 14px */
     box-sizing: border-box;
 }
 
-.bubbly-button {
-    background-color: #ff0081;
-    color: white;
-    border: none;
-    padding: 15px;
+button {
+    display: block;
+    font-size: 1em;
+    padding: 10px;      /* ബട്ടൺ കനം കുറച്ചു */
+    margin-top: 10px;
     width: 100%;
+    background-color: #ff0081;
+    color: #fff;
     border-radius: 8px;
-    font-weight: bold;
+    border: none;
     cursor: pointer;
+    font-weight: bold;
     box-shadow: 0 4px 15px rgba(255, 0, 130, 0.3);
+    transition: 0.2s;
 }
 
-.result-box { margin-top: 20px; }
+button:active { transform: scale(0.98); }
+
+/* ക്ലിയർ ബട്ടണിന് പ്രത്യേക സ്റ്റൈൽ */
+button[onclick="clearAll()"] {
+    background-color: #6c757d;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.2);
+}
 
 .percent-display {
-    font-size: 45px;
+    font-size: 38px;    /* മൊബൈലിന് അനുയോജ്യമായ സൈസ് */
     font-weight: bold;
     color: #ff0081;
-    display: block;
+    margin-top: 5px;
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop { 
+    0% { transform: scale(0.5); opacity: 0; } 
+    100% { transform: scale(1); opacity: 1; } 
 }
 
 .watermark {
@@ -56,7 +86,7 @@ select, input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 80px;
+    font-size: 60px;    /* വാട്ടർമാർക്ക് സൈസ് കുറച്ചു */
     color: rgba(255,255,255,0.07);
     font-weight: bold;
     pointer-events: none;
@@ -64,8 +94,16 @@ select, input {
 }
 
 .footer { 
-    margin-top: 20px;
-    font-size: 14px; 
+    margin-top: 15px;
+    font-size: 12px;    /* ഫൂട്ടർ സൈസ് കുറച്ചു */
     color: white; 
-    z-index: 2;
+}
+
+/* മൊബൈൽ ഫോണുകൾക്ക് വേണ്ടി മാത്രമുള്ള മാറ്റങ്ങൾ */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px 15px;
+    }
+    h2 { font-size: 20px; }
+    select, input { padding: 8px; }
 }
