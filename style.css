@@ -1,79 +1,72 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
-    
-    /* മൊബൈൽ സ്ക്രീനിന്റെ നടുവിൽ വരാൻ ഈ 4 വരികൾ നിർബന്ധമാണ് */
     display: flex;
-    justify-content: center; /* Horizontal Center */
-    align-items: center;     /* Vertical Center */
-    min-height: 100vh;       /* ഫുൾ സ്ക്രീൻ ഹൈറ്റ് */
-    
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
     flex-direction: column;
     margin: 0;
-    padding: 15px;
+    padding: 10px;
     box-sizing: border-box;
     overflow-x: hidden;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.95);
-    width: 100%;          
-    max-width: 380px;    
-    padding: 20px;       
-    border-radius: 20px; 
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+    width: 90%;          
+    max-width: 340px;    /* 380-ൽ നിന്ന് 340 ആക്കി കുറച്ചു */
+    padding: 12px 18px;  /* പാഡിംഗ് കുറച്ചു */
+    border-radius: 15px; 
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
     text-align: center;
     position: relative;
     z-index: 2;
-    
-    /* സെന്ററിംഗ് പെർഫെക്റ്റ് ആക്കാൻ */
-    display: flex;
-    flex-direction: column;
     margin: auto; 
 }
 
 h2 { 
-    font-size: 20px; 
+    font-size: 18px;    /* ടൈറ്റിൽ വലിപ്പം കുറച്ചു */
     margin-top: 5px;
-    margin-bottom: 15px; 
+    margin-bottom: 12px; 
     color: #333; 
     font-weight: 700;
 }
 
 label {
-    font-size: 14px;
+    font-size: 13px;    /* ലേബൽ വലിപ്പം കുറച്ചു */
     font-weight: 600;
     color: #444;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
-/* ഇൻപുട്ടുകളുടെ സൈസും ബോക്സുകൾ തമ്മിലുള്ള ദൂരവും */
+/* Batch Choose & Input ബോക്സുകളുടെ വലിപ്പം കുറച്ചു */
 select, input {
     width: 100%;      
-    height: 42px;       
-    padding: 0 12px;    
-    margin: 6px 0;      
-    border-radius: 12px;
+    height: 38px;       /* 42-ൽ നിന്ന് 38 ആക്കി കുറച്ചു */
+    padding: 0 10px;    
+    margin: 5px 0;      /* അകലം കുറച്ചു */
+    border-radius: 8px;
     border: 1px solid #ddd;
-    font-size: 14px;
+    font-size: 13px;    /* ഫോണ്ട് സൈസ് കുറച്ചു */
     box-sizing: border-box;
     background: #fdfdfd;
 }
 
-/* ബട്ടണുകൾ */
+/* ബട്ടണുകളുടെ വലിപ്പം */
 button {
-    height: 48px;       
-    font-size: 16px;
-    margin-top: 10px;
+    height: 42px;       /* 48-ൽ നിന്ന് 42 ആക്കി കുറച്ചു */
+    font-size: 14px;
+    margin-top: 8px;
     width: 100%;
     background-color: #ff0081;
     color: #fff;
-    border-radius: 12px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(255, 0, 130, 0.3);
+    box-shadow: 0 4px 12px rgba(255, 0, 130, 0.25);
     transition: 0.3s;
 }
 
@@ -83,16 +76,15 @@ button:active {
 
 button[onclick="clearAll()"] {
     background-color: #6c757d;
-    margin-top: 8px;
-    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.2);
+    margin-top: 6px;
 }
 
 .result-box {
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 .percent-display {
-    font-size: 38px;    
+    font-size: 32px;    /* റിസൾട്ട് വലിപ്പം കുറച്ചു */
     font-weight: 800;
     color: #ff0081;
 }
@@ -103,26 +95,16 @@ button[onclick="clearAll()"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 65px;
-    color: rgba(255,255,255,0.07);
+    font-size: 50px;    /* വലിപ്പം കുറച്ചു */
+    color: rgba(255,255,255,0.06);
     font-weight: 900;
     pointer-events: none;
     z-index: 1;
 }
 
 .footer { 
-    margin-top: 15px;
-    font-size: 12px; 
+    margin-top: 12px;
+    font-size: 11px; 
     color: white; 
-    opacity: 0.9;
-}
-
-/* ബാച്ച് സെലക്ട് ചെയ്യുമ്പോൾ ലിസ്റ്റ് വലുതായാൽ സ്ക്രോൾ ചെയ്യാൻ സഹായിക്കുന്നു */
-@media (max-height: 700px) {
-    body {
-        justify-content: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        height: auto;
-    }
+    opacity: 0.8;
 }
