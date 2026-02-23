@@ -76,7 +76,6 @@ function calculatePercentage() {
             </div>
 
             <div style="border-top: none; margin-top: 15px; padding-top: 10px; font-family: 'Poppins', sans-serif;">
-                
                 <div style="height: 1.5px; width: 85%; max-width: 280px; background: #555; margin: 0 auto 25px auto;"></div>
                 
                 <b style="color: #666; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">Plus Two Result Portal</b><br>
@@ -94,35 +93,38 @@ function calculatePercentage() {
                         text-transform: uppercase;
                         display: inline-block;
                         position: relative;
-                        /* Increased time to 1.2s and used cubic-bezier for a slow, smooth feel */
+                        /* 1.2s for slow movement, cubic-bezier for high-end smoothness */
                         animation: smoothBounce 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
                     }
 
-                    /* Delays for the smooth "wave" effect */
-                    .bounce-box span:nth-child(2) { animation-delay: 0.2s; }
-                    .bounce-box span:nth-child(3) { animation-delay: 0.4s; }
-                    .bounce-box span:nth-child(4) { animation-delay: 0.6s; }
-                    .bounce-box span:nth-child(5) { animation-delay: 0.8s; }
-                    .bounce-box span:nth-child(6) { animation-delay: 1.0s; }
-                    
+                    /* Staggered delays create the flowing wave motion */
+                    .bounce-box span:nth-child(2) { animation-delay: 0.15s; }
+                    .bounce-box span:nth-child(3) { animation-delay: 0.3s; }
+                    .bounce-box span:nth-child(4) { animation-delay: 0.45s; }
+                    .bounce-box span:nth-child(5) { animation-delay: 0.6s; }
+                    .bounce-box span:nth-child(6) { animation-delay: 0.75s; }
+
                     @keyframes smoothBounce {
-                        0% { transform: translateY(0); }
-                        100% {
+                        0% { 
+                            transform: translateY(0); 
+                            text-shadow: 0 0px 0 #ccc;
+                        }
+                        100% { 
                             transform: translateY(-12px); 
-                            text-shadow: 0 1px 0 #ccc,
-                                         0 2px 0 #ccc,
-                                         0 5px 10px rgba(78, 115, 223, 0.3);
+                            text-shadow: 0 1px 0 #ccc, 
+                                         0 2px 0 #ccc, 
+                                         0 3px 0 #ccc, 
+                                         0 8px 10px rgba(78, 115, 223, 0.2);
                         }
                     }
                 </style>
 
-                <div style="font-size: 14px; color: #888; margin-bottom: -5px; font-weight: bold; letter-spacing: 1px;">DEVELOPED BY</div>
+                <div style="font-size: 13px; color: #888; margin-bottom: -5px; font-weight: bold; letter-spacing: 2px;">DEVELOPED BY</div>
                 <div class="bounce-box">
                     <span>M</span><span>I</span><span>N</span><span>H</span><span>A</span><span>J</span>
                 </div>
                 
                 <span style="color: #888; font-size: 14px; font-weight: 500;">Academic Year 2026</span>
-                
                 <div style="height: 1.5px; width: 85%; max-width: 280px; background: #555; margin: 15px auto 0 auto;"></div>
             </div>
         </div>
