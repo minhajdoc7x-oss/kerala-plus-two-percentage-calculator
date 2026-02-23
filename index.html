@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -39,12 +41,21 @@
             Calculate Percentage
         </button>
 
+        <button class="bubbly-button" onclick="saveAsImage()" style="background: #2196F3; margin-top: 10px;">
+            📸 Save Result
+        </button>
+
         <button class="bubbly-button clear-btn" onclick="clearAll()">
             Clear All
         </button>
 
         <div id="result" class="result-box"></div>
     </div>
+
+    <audio id="gradeSound">
+        <source src="floraphonic-tada-military-3-183975.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <div class="footer">
         © 2026 | Website created by Minhaj
