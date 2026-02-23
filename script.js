@@ -78,7 +78,7 @@ function calculatePercentage() {
 
             <div style="border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; font-size: 13px; color: #666; line-height: 1.6;">
                 ────────────────────────────<br>
-                <b>PLUS TWO PERCENTAGE PORTAL</b><br>
+                <b>PLUS TWO RESULT PORTAL</b><br>
                 Developed by <b>Minhaj</b><br>
                 Academic Year 2026<br>
                 ────────────────────────────
