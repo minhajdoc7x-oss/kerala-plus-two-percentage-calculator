@@ -17,7 +17,6 @@ function updateSubjects() {
         return;
     }
 
-    // Displays the "ENTER SUBJECT TOTAL MARK" heading
     if(totalMarkDiv) totalMarkDiv.style.display = "block";
 
     batchData[batch].forEach((sub, index) => {
@@ -34,7 +33,6 @@ function updateSubjects() {
 
 function calculatePercentage() {
     const batch = document.getElementById('batchSelect').value;
-    // Pulls the 1200 value from the hidden input field
     const maxTotalInput = document.getElementById('maxTotal'); 
     
     if (!batch) {
@@ -54,8 +52,14 @@ function calculatePercentage() {
         totalMarks += parseFloat(value);
     }
 
-    // Calculates percentage based on the hidden total
     let percentage = (totalMarks / maxTotal) * 100;
+
+    // --- PLAY SOUND ---
+    const sound = document.getElementById("gradeSound");
+    if (sound) {
+        sound.currentTime = 0; // Reset sound to start
+        sound.play().catch(e => console.log("Audio playback blocked by browser."));
+    }
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
@@ -65,7 +69,6 @@ function calculatePercentage() {
         </div>
     `;
 
-    // Smooth scroll to results for better mobile experience
     setTimeout(() => {
         const element = document.getElementById("targetResult");
         if(element) {
@@ -80,12 +83,30 @@ function calculatePercentage() {
     });
 }
 
+// --- NEW: SAVE AS IMAGE FUNCTION ---
+function saveAsImage() {
+    const resultBox = document.getElementById("result");
+    if (resultBox.innerHTML.trim() === "") {
+        alert("Please calculate a result first!");
+        return;
+    }
+
+    html2canvas(resultBox, {
+        backgroundColor: "#ffffff",
+        scale: 2 // Higher quality image
+    }).then(canvas => {
+        let link = document.createElement('a');
+        link.download = 'My_Plus_Two_Result.png';
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+}
+
 function clearAll() {
     document.getElementById('batchSelect').value = "";
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
     
-    // Hides the heading section again on reset
     const totalMarkDiv = document.getElementById('totalMarkContainer');
     if(totalMarkDiv) totalMarkDiv.style.display = "none"; 
     
