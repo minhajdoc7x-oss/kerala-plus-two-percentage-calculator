@@ -61,7 +61,7 @@ function calculatePercentage() {
         sound.play().catch(e => console.log("Audio playback blocked."));
     }
 
-   const resultDiv = document.getElementById('result');
+    const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <div id="targetResult" style="margin-top:20px; padding: 25px; background: #ffffff; border-radius: 20px; border: 2px solid #1cc88a; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             <div style="font-size: 18px; color: #333; margin-bottom: 8px;">Total Marks: <b>${totalMarks} / ${maxTotal}</b></div>
@@ -81,14 +81,28 @@ function calculatePercentage() {
                 
                 <b style="color: #666; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">Plus Two Result Portal</b><br>
                 
-                <div style="font-size: 22px; font-weight: 900; margin: 10px 0; display: inline-block;
-                    background: linear-gradient(to right, #4e73df, #1cc88a, #4e73df);
-                    background-size: 200% auto;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1));
-                    text-transform: uppercase;
-                    letter-spacing: 1px;">
+                <style>
+                    @keyframes rainbow {
+                        0% { color: #ff0000; }
+                        20% { color: #ff8000; }
+                        40% { color: #ffff00; }
+                        60% { color: #00ff00; }
+                        80% { color: #0000ff; }
+                        100% { color: #8b00ff; }
+                    }
+                    .changing-name {
+                        font-size: 22px; 
+                        font-weight: 900; 
+                        margin: 10px 0; 
+                        display: inline-block;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        animation: rainbow 3s infinite linear;
+                        filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1));
+                    }
+                </style>
+
+                <div class="changing-name">
                     Developed by Minhaj
                 </div><br>
                 
