@@ -93,16 +93,16 @@ function calculatePercentage() {
                         text-transform: uppercase;
                         display: inline-block;
                         position: relative;
-                        /* 1.2s for slow movement, cubic-bezier for high-end smoothness */
-                        animation: smoothBounce 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+                        /* Speed increased to 0.8s for a snappier wave effect */
+                        animation: smoothBounce 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
                     }
 
-                    /* Staggered delays create the flowing wave motion */
-                    .bounce-box span:nth-child(2) { animation-delay: 0.15s; }
-                    .bounce-box span:nth-child(3) { animation-delay: 0.3s; }
-                    .bounce-box span:nth-child(4) { animation-delay: 0.45s; }
-                    .bounce-box span:nth-child(5) { animation-delay: 0.6s; }
-                    .bounce-box span:nth-child(6) { animation-delay: 0.75s; }
+                    /* Tightened delays for a faster flowing wave */
+                    .bounce-box span:nth-child(2) { animation-delay: 0.1s; }
+                    .bounce-box span:nth-child(3) { animation-delay: 0.2s; }
+                    .bounce-box span:nth-child(4) { animation-delay: 0.3s; }
+                    .bounce-box span:nth-child(5) { animation-delay: 0.4s; }
+                    .bounce-box span:nth-child(6) { animation-delay: 0.5s; }
 
                     @keyframes smoothBounce {
                         0% { 
@@ -110,11 +110,11 @@ function calculatePercentage() {
                             text-shadow: 0 0px 0 #ccc;
                         }
                         100% { 
-                            transform: translateY(-12px); 
+                            transform: translateY(-15px); 
                             text-shadow: 0 1px 0 #ccc, 
                                          0 2px 0 #ccc, 
                                          0 3px 0 #ccc, 
-                                         0 8px 10px rgba(78, 115, 223, 0.2);
+                                         0 10px 10px rgba(0, 0, 0, 0.15);
                         }
                     }
                 </style>
