@@ -64,24 +64,35 @@ function calculatePercentage() {
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
-        <div id="targetResult" style="margin-top:20px; padding: 20px; background: #ffffff; border-radius: 15px; border: 2px solid #1cc88a; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-            <div style="font-size: 18px; margin-bottom: 5px;">Total Marks: <b>${totalMarks} / ${maxTotal}</b></div>
-            <div style="font-size: 32px; font-weight: bold; color: #4e73df; margin-bottom: 5px;">Percentage: ${percentage.toFixed(2)}%</div>
-            <div style="font-size: 20px; font-weight: 700; color: ${percentage >= 35 ? '#1cc88a' : '#e74a3b'}; margin-bottom: 15px;">Status: ${status}</div>
+        <div id="targetResult" style="margin-top:20px; padding: 25px; background: #ffffff; border-radius: 20px; border: 2px solid #1cc88a; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div style="font-size: 18px; color: #333; margin-bottom: 8px;">Total Marks: <b>${totalMarks} / ${maxTotal}</b></div>
+            <div style="font-size: 34px; font-weight: 800; color: #5d81f1; margin-bottom: 10px;">Percentage: ${percentage.toFixed(2)}%</div>
+            <div style="font-size: 22px; font-weight: 700; color: ${percentage >= 35 ? '#1cc88a' : '#e74a3b'}; margin-bottom: 20px;">Status: ${status}</div>
             
-            <div style="text-align: left; margin-bottom: 15px;">
-                <span style="font-size: 14px; font-weight: bold; color: #333;">📈 Performance Bar</span>
-                <div style="width: 100%; background: #e9ecef; border-radius: 10px; height: 15px; margin-top: 5px; overflow: hidden; border: 1px solid #ddd;">
-                    <div style="width: ${percentage}%; background: linear-gradient(90deg, #4e73df, #1cc88a); height: 100%; transition: width 1s ease-in-out;"></div>
+            <div style="text-align: left; margin-bottom: 20px;">
+                <span style="font-size: 15px; font-weight: 700; color: #444;">📈 Performance Bar</span>
+                <div style="width: 100%; background: #e9ecef; border-radius: 50px; height: 16px; margin-top: 8px; overflow: hidden; border: 1px solid #ddd;">
+                    <div style="width: ${percentage}%; background: linear-gradient(90deg, #4e73df, #1cc88a); height: 100%; border-radius: 50px; transition: width 1.5s ease-in-out;"></div>
                 </div>
             </div>
 
-            <div style="border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; font-size: 13px; color: #666; line-height: 1.6;">
-                ────────────────────────────<br>
-                <b>PLUS TWO RESULT PORTAL</b><br>
-                Developed by <b>Minhaj</b><br>
-                Academic Year 2026<br>
-                ────────────────────────────
+            <div style="border-top: 1px solid #eee; margin-top: 15px; padding-top: 20px; font-family: 'Poppins', sans-serif;">
+                <div style="height: 1px; width: 80%; background: #ddd; margin: 0 auto 15px auto;"></div>
+                <b style="color: #666; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">Plus Two Result Portal</b><br>
+                
+                <div style="font-size: 22px; font-weight: 900; margin: 10px 0; display: inline-block;
+                    background: linear-gradient(to right, #4e73df, #1cc88a, #4e73df);
+                    background-size: 200% auto;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1));
+                    text-transform: uppercase;
+                    letter-spacing: 1px;">
+                    Developed by Minhaj
+                </div><br>
+                
+                <span style="color: #888; font-size: 14px; font-weight: 500;">Academic Year 2026</span>
+                <div style="height: 1px; width: 80%; background: #ddd; margin: 15px auto 0 auto;"></div>
             </div>
         </div>
     `;
@@ -124,9 +135,7 @@ function clearAll() {
     document.getElementById('batchSelect').value = "";
     document.getElementById('subjectInputs').innerHTML = "";
     document.getElementById('result').innerHTML = "";
-    
     const totalMarkDiv = document.getElementById('totalMarkContainer');
     if(totalMarkDiv) totalMarkDiv.style.display = "none"; 
-    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
