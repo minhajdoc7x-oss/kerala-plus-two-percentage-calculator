@@ -55,7 +55,6 @@ function calculatePercentage() {
     let percentage = (totalMarks / maxTotal) * 100;
     let status = percentage >= 35 ? "PASS ✅" : "FAILED ❌";
 
-    // --- PLAY SOUND ---
     const sound = document.getElementById("gradeSound");
     if (sound) {
         sound.currentTime = 0; 
