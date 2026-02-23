@@ -61,7 +61,7 @@ function calculatePercentage() {
         sound.play().catch(e => console.log("Audio playback blocked."));
     }
 
-    const resultDiv = document.getElementById('result');
+   const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
         <div id="targetResult" style="margin-top:20px; padding: 25px; background: #ffffff; border-radius: 20px; border: 2px solid #1cc88a; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             <div style="font-size: 18px; color: #333; margin-bottom: 8px;">Total Marks: <b>${totalMarks} / ${maxTotal}</b></div>
@@ -75,8 +75,10 @@ function calculatePercentage() {
                 </div>
             </div>
 
-            <div style="border-top: 1px solid #eee; margin-top: 15px; padding-top: 20px; font-family: 'Poppins', sans-serif;">
-                <div style="height: 1px; width: 80%; background: #ddd; margin: 0 auto 15px auto;"></div>
+            <div style="border-top: none; margin-top: 15px; padding-top: 10px; font-family: 'Poppins', sans-serif;">
+                
+                <div style="height: 1.5px; width: 85%; max-width: 280px; background: #555; margin: 0 auto 15px auto;"></div>
+                
                 <b style="color: #666; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">Plus Two Result Portal</b><br>
                 
                 <div style="font-size: 22px; font-weight: 900; margin: 10px 0; display: inline-block;
@@ -91,7 +93,8 @@ function calculatePercentage() {
                 </div><br>
                 
                 <span style="color: #888; font-size: 14px; font-weight: 500;">Academic Year 2026</span>
-                <div style="height: 1px; width: 80%; background: #ddd; margin: 15px auto 0 auto;"></div>
+                
+                <div style="height: 1.5px; width: 85%; max-width: 280px; background: #555; margin: 15px auto 0 auto;"></div>
             </div>
         </div>
     `;
