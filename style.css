@@ -17,7 +17,7 @@ body {
 .container {
     background: rgba(255, 255, 255, 0.95);
     width: 100%;
-    max-width: 320px;
+    max-width: 350px; /* Slightly wider for the professional result card */
     padding: 25px 20px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
@@ -49,6 +49,12 @@ input, select {
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #4e73df;
+    outline: none;
 }
 
 button {
@@ -59,6 +65,11 @@ button {
     margin-top: 10px;
     cursor: pointer;
     font-weight: 600;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+button:active {
+    transform: scale(0.98); /* Adds a "click" feel */
 }
 
 .bubbly-button {
@@ -69,6 +80,16 @@ button {
 .clear-btn {
     background: #6c757d;
     color: white;
+}
+
+/* --- Performance Bar Animation --- */
+@keyframes growBar {
+    from { width: 0%; }
+}
+
+/* Target the filling of the progress bar created in JS */
+#targetResult div > div > div {
+    animation: growBar 1.5s ease-out forwards;
 }
 
 .percent-display {
@@ -82,4 +103,5 @@ button {
     margin-top: 20px;
     color: white;
     font-size: 14px;
+    text-align: center;
 }
