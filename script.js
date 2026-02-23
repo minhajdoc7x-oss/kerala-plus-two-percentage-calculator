@@ -77,34 +77,47 @@ function calculatePercentage() {
 
             <div style="border-top: none; margin-top: 15px; padding-top: 10px; font-family: 'Poppins', sans-serif;">
                 
-                <div style="height: 1.5px; width: 85%; max-width: 280px; background: #555; margin: 0 auto 15px auto;"></div>
+                <div style="height: 1.5px; width: 85%; max-width: 280px; background: #555; margin: 0 auto 25px auto;"></div>
                 
                 <b style="color: #666; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;">Plus Two Result Portal</b><br>
                 
                 <style>
-                    @keyframes rainbow {
-                        0% { color: #ff0000; }
-                        20% { color: #ff8000; }
-                        40% { color: #ffff00; }
-                        60% { color: #00ff00; }
-                        80% { color: #0000ff; }
-                        100% { color: #8b00ff; }
+                    .bounce-box {
+                        margin-top: 20px;
+                        margin-bottom: 10px;
                     }
-                    .changing-name {
-                        font-size: 22px; 
-                        font-weight: 900; 
-                        margin: 10px 0; 
-                        display: inline-block;
+                    .bounce-box span {
+                        font-size: 28px;
+                        color: #4e73df;
+                        font-weight: 900;
+                        font-family: 'Arial';
                         text-transform: uppercase;
-                        letter-spacing: 1px;
-                        animation: rainbow 3s infinite linear;
-                        filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1));
+                        display: inline-block;
+                        position: relative;
+                        animation: bounce 0.4s ease infinite alternate;
+                    }
+                    /* Delays for the "wave" effect */
+                    .bounce-box span:nth-child(2) { animation-delay: 0.1s; }
+                    .bounce-box span:nth-child(3) { animation-delay: 0.2s; }
+                    .bounce-box span:nth-child(4) { animation-delay: 0.3s; }
+                    .bounce-box span:nth-child(5) { animation-delay: 0.4s; }
+                    .bounce-box span:nth-child(6) { animation-delay: 0.5s; }
+                    
+                    @keyframes bounce {
+                        100% {
+                            top: -12px; 
+                            text-shadow: 0 1px 0 #ccc,
+                                         0 2px 0 #ccc,
+                                         0 3px 0 #ccc,
+                                         0 4px 0 #4e73df;
+                        }
                     }
                 </style>
 
-                <div class="changing-name">
-                    Developed by Minhaj
-                </div><br>
+                <div style="font-size: 14px; color: #888; margin-bottom: -5px; font-weight: bold;">DEVELOPED BY</div>
+                <div class="bounce-box">
+                    <span>M</span><span>I</span><span>N</span><span>H</span><span>A</span><span>J</span>
+                </div>
                 
                 <span style="color: #888; font-size: 14px; font-weight: 500;">Academic Year 2026</span>
                 
