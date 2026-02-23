@@ -90,31 +90,33 @@ function calculatePercentage() {
                         font-size: 28px;
                         color: #4e73df;
                         font-weight: 900;
-                        font-family: 'Arial';
+                        font-family: 'Arial Black', sans-serif;
                         text-transform: uppercase;
                         display: inline-block;
                         position: relative;
-                        animation: bounce 0.4s ease infinite alternate;
+                        /* Increased time to 1.2s and used cubic-bezier for a slow, smooth feel */
+                        animation: smoothBounce 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
                     }
-                    /* Delays for the "wave" effect */
-                    .bounce-box span:nth-child(2) { animation-delay: 0.1s; }
-                    .bounce-box span:nth-child(3) { animation-delay: 0.2s; }
-                    .bounce-box span:nth-child(4) { animation-delay: 0.3s; }
-                    .bounce-box span:nth-child(5) { animation-delay: 0.4s; }
-                    .bounce-box span:nth-child(6) { animation-delay: 0.5s; }
+
+                    /* Delays for the smooth "wave" effect */
+                    .bounce-box span:nth-child(2) { animation-delay: 0.2s; }
+                    .bounce-box span:nth-child(3) { animation-delay: 0.4s; }
+                    .bounce-box span:nth-child(4) { animation-delay: 0.6s; }
+                    .bounce-box span:nth-child(5) { animation-delay: 0.8s; }
+                    .bounce-box span:nth-child(6) { animation-delay: 1.0s; }
                     
-                    @keyframes bounce {
+                    @keyframes smoothBounce {
+                        0% { transform: translateY(0); }
                         100% {
-                            top: -12px; 
+                            transform: translateY(-12px); 
                             text-shadow: 0 1px 0 #ccc,
                                          0 2px 0 #ccc,
-                                         0 3px 0 #ccc,
-                                         0 4px 0 #4e73df;
+                                         0 5px 10px rgba(78, 115, 223, 0.3);
                         }
                     }
                 </style>
 
-                <div style="font-size: 14px; color: #888; margin-bottom: -5px; font-weight: bold;">DEVELOPED BY</div>
+                <div style="font-size: 14px; color: #888; margin-bottom: -5px; font-weight: bold; letter-spacing: 1px;">DEVELOPED BY</div>
                 <div class="bounce-box">
                     <span>M</span><span>I</span><span>N</span><span>H</span><span>A</span><span>J</span>
                 </div>
