@@ -53,19 +53,36 @@ function calculatePercentage() {
     }
 
     let percentage = (totalMarks / maxTotal) * 100;
+    let status = percentage >= 35 ? "PASS ✅" : "FAILED ❌";
 
     // --- PLAY SOUND ---
     const sound = document.getElementById("gradeSound");
     if (sound) {
-        sound.currentTime = 0; // Reset sound to start
-        sound.play().catch(e => console.log("Audio playback blocked by browser."));
+        sound.currentTime = 0; 
+        sound.play().catch(e => console.log("Audio playback blocked."));
     }
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = `
-        <div id="targetResult" style="margin-top:15px; padding: 15px; background: #f9f9f9; border-radius: 10px; border: 2px solid #1cc88a;">
-            <div style="font-size: 16px;">Total Obtained: <b>${totalMarks}</b> / ${maxTotal}</div>
-            <div class="percent-display" style="font-size: 28px; font-weight: bold; color: #1cc88a;">${percentage.toFixed(2)}%</div>
+        <div id="targetResult" style="margin-top:20px; padding: 20px; background: #ffffff; border-radius: 15px; border: 2px solid #1cc88a; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <div style="font-size: 18px; margin-bottom: 5px;">Total Marks: <b>${totalMarks} / ${maxTotal}</b></div>
+            <div style="font-size: 32px; font-weight: bold; color: #4e73df; margin-bottom: 5px;">Percentage: ${percentage.toFixed(2)}%</div>
+            <div style="font-size: 20px; font-weight: 700; color: ${percentage >= 35 ? '#1cc88a' : '#e74a3b'}; margin-bottom: 15px;">Status: ${status}</div>
+            
+            <div style="text-align: left; margin-bottom: 15px;">
+                <span style="font-size: 14px; font-weight: bold; color: #333;">📈 Performance Bar</span>
+                <div style="width: 100%; background: #e9ecef; border-radius: 10px; height: 15px; margin-top: 5px; overflow: hidden; border: 1px solid #ddd;">
+                    <div style="width: ${percentage}%; background: linear-gradient(90deg, #4e73df, #1cc88a); height: 100%; transition: width 1s ease-in-out;"></div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; font-size: 13px; color: #666; line-height: 1.6;">
+                ────────────────────────────<br>
+                <b>PLUS TWO RESULT PORTAL</b><br>
+                Developed by <b>Minhaj</b><br>
+                Academic Year 2026<br>
+                ────────────────────────────
+            </div>
         </div>
     `;
 
@@ -76,14 +93,15 @@ function calculatePercentage() {
         }
     }, 150);
 
-    confetti({
-        particleCount: 180,
-        spread: 90,
-        origin: { y: 0.6 }
-    });
+    if (percentage >= 35) {
+        confetti({
+            particleCount: 180,
+            spread: 90,
+            origin: { y: 0.6 }
+        });
+    }
 }
 
-// --- NEW: SAVE AS IMAGE FUNCTION ---
 function saveAsImage() {
     const resultBox = document.getElementById("result");
     if (resultBox.innerHTML.trim() === "") {
@@ -93,7 +111,7 @@ function saveAsImage() {
 
     html2canvas(resultBox, {
         backgroundColor: "#ffffff",
-        scale: 2 // Higher quality image
+        scale: 2 
     }).then(canvas => {
         let link = document.createElement('a');
         link.download = 'My_Plus_Two_Result.png';
